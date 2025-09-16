@@ -32,7 +32,7 @@ new #[Layout('layouts.guest')] class extends Component {
     <h1 class="h2 mt-auto">Welcome back</h1>
     <div class="nav fs-sm mb-4">
         Don't have an account?
-        <a class="nav-link text-decoration-underline p-0 ms-2" href="{{ route('register') }}">Create an
+        <a class="nav-link text-decoration-underline p-0 ms-2" wire:navigate href="{{ route('register') }}">Create an
             account</a>
     </div>
 
@@ -52,9 +52,11 @@ new #[Layout('layouts.guest')] class extends Component {
 
         <div class="d-flex align-items-center justify-content-between mb-4">
             <div class="form-check me-2">
-                <input wire:model="form.remember" type="checkbox" class="form-check-input" id="remember-30">
-                <label for="remember-30" class="form-check-label">Remember for 30 days</label>
+                <x-text-input wire:model="form.remember" type="checkbox" id="remember-30">
+                    Remember for 30 days
+                </x-text-input>
             </div>
+
             <div class="nav">
                 @if (Route::has('password.request'))
                     <a class="nav-link animate-underline p-0" href="{{ route('password.request') }}" wire:navigate>

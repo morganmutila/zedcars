@@ -68,9 +68,6 @@
 
                 <!-- Footer -->
                 <footer class="mt-auto">
-                    <div class="nav mb-4">
-                        <a class="nav-link text-decoration-underline p-0" href="#">Need help?</a>
-                    </div>
                     <p class="fs-xs mb-0">
                         Copyrights © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
                     </p>
@@ -86,7 +83,7 @@
             </div>
         </div>
     </main>
-     <!-- Bootstrap + Theme scripts -->
+    <!-- Bootstrap + Theme scripts -->
     <script src="assets/js/theme.min.js"></script>
 </body>
 
