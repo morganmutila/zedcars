@@ -1,15 +1,36 @@
-<!-- Floating label: Reusable text input component -->
-@props(['label' => '', 'type' => 'text', 'id' => '', 'placeholder' => '', 'disabled' => false, 'messages' => []])
+@props([
+    'label' => '',
+    'type' => 'text',
+    'id' => '',
+    'placeholder' => '',
+    'disabled' => false,
+    'messages' => [],
+    'withIcon' => false,
+    'icon' => '',
+])
+
+@php
+    $inputClass = 'form-control form-control-lg';
+    if ($messages) {
+        $inputClass .= ' is-invalid';
+    }
+    if ($withIcon) {
+        $inputClass .= ' form-icon-start';
+    }
+    $inputAttrs = $attributes->merge(['class' => $inputClass, 'id' => $id]);
+@endphp
 
 @if ($type === 'password')
-    @if (!empty($label))
+    @if ($label)
         <label for="{{ $id }}" class="form-label">{{ $label }}</label>
     @endif
-    <div class="password-toggle">
-        <input type="{{ $type }}" placeholder="{{ $placeholder }}" @disabled($disabled)
-            {{ $attributes->merge(['class' => 'form-control form-control-lg ' . ($messages ? 'is-invalid' : '')]) }}>
+    <div class="password-toggle position-relative">
+        @if ($withIcon && $icon)
+            <i class="{{ $icon }} position-absolute top-50 start-0 translate-middle-y fs-lg ms-3"></i>
+        @endif
+        <input type="password" placeholder="{{ $placeholder }}" @disabled($disabled) {{ $inputAttrs }}>
         @if ($messages)
-            <ul {{ $attributes->merge(['class' => 'list-unstyled gap-0 text-danger']) }}>
+            <ul class="list-unstyled gap-0 text-danger">
                 @foreach ((array) $messages as $message)
                     <li><small>{{ $message }}</small></li>
                 @endforeach
@@ -20,23 +41,27 @@
         </label>
     </div>
 @elseif($type === 'checkbox')
-    <input type="{{ $type }}" placeholder="{{ $placeholder }}" @disabled($disabled)
-        {{ $attributes->merge(['class' => 'form-check-input ' . ($messages ? 'is-invalid' : '')]) }}
-        id="{{ $id }}">
-    <label for="{{ $id }}" class="form-check-label">{{ $slot }}</label>
+    <div class="form-check">
+        <input type="checkbox" @disabled($disabled)
+            {{ $attributes->merge(['class' => 'form-check-input' . ($messages ? ' is-invalid' : ''), 'id' => $id]) }}>
+        <label for="{{ $id }}" class="form-check-label">{{ $slot ?: $label }}</label>
+    </div>
 @else
-    @if (!empty($label))
+    @if ($label)
         <label for="{{ $id }}" class="form-label">{{ $label }}</label>
     @endif
-    <input type="{{ $type }}" placeholder="{{ $placeholder }}" @disabled($disabled)
-        {{ $attributes->merge(['class' => 'form-control form-control-lg ' . ($messages ? 'is-invalid' : '')]) }}>
-
+    <div class="position-relative">
+        @if ($withIcon && $icon)
+            <i class="{{ $icon }} position-absolute top-50 start-0 translate-middle-y fs-lg ms-3"></i>
+        @endif
+        <input type="{{ $type }}" placeholder="{{ $placeholder }}" @disabled($disabled)
+            {{ $inputAttrs }}>
+    </div>
     @if ($messages)
-        <ul {{ $attributes->merge(['class' => 'list-unstyled text-danger']) }}>
+        <ul class="list-unstyled text-danger">
             @foreach ((array) $messages as $message)
                 <li><small>{{ $message }}</small></li>
             @endforeach
         </ul>
     @endif
-
 @endif

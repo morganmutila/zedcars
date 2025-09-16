@@ -37,7 +37,7 @@ new #[Layout('layouts.guest')] class extends Component {
     </div>
 
     <!-- Form -->
-    <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="login" wire:loading.class="opacity-75">
+    <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="login">
         <!-- Email Address -->
         <div class="mb-3">
             <x-text-input wire:model="form.email" id="email" type="email" autocomplete="username" :placeholder="__('Email')"
@@ -51,11 +51,9 @@ new #[Layout('layouts.guest')] class extends Component {
         </div>
 
         <div class="d-flex align-items-center justify-content-between mb-4">
-            <div class="form-check me-2">
-                <x-text-input wire:model="form.remember" type="checkbox" id="remember-30">
-                    Remember for 30 days
-                </x-text-input>
-            </div>
+            <x-text-input wire:model="form.remember" type="checkbox" id="remember-30">
+                Remember for 30 days
+            </x-text-input>
 
             <div class="nav">
                 @if (Route::has('password.request'))

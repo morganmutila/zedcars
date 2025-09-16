@@ -37,23 +37,24 @@ new #[Layout('layouts.guest')] class extends Component {
     Forgot Password
 </x-slot:title>
 
-<div>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
-
+<div class="mt-md-5">
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-    <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="sendPasswordResetLink"
-        wire:loading.class="opacity-75">
+    <x-auth-session-status class="mb-3" :status="session('status')" />
+    <h1 class="h2 mt-auto">Forgot password?</h1>
+    <p class="pb-2 pb-md-3">Enter the email address you used when you joined and we'll send you instructions to reset
+        your
+        password</p>
+
+    <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="sendPasswordResetLink">
         <!-- Email Address -->
-        <div>
-            <x-text-input wire:model="email" id="email" type="email" autofocus label="Email" />
+        <div class="mb-3 position-relative">
+            <x-text-input wire:model="email" id="email" type="email" :messages="$errors->get('email')" placeholder="Email Address"
+                icon="fi-mail" :with-icon="true" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-primary-button class="w-full" type="submit">
-                {{ __('Send Reset Link') }}
+            <x-primary-button class="btn-lg w-100" type="submit">
+                {{ __('Reset Password') }}
             </x-primary-button>
         </div>
     </form>

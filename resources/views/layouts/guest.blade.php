@@ -34,59 +34,66 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <main class="content-wrapper w-100 px-3 ps-lg-5 pe-lg-4 mx-auto" style="max-width: 1920px">
-        <div class="d-lg-flex">
+    <main class="content-wrapper w-100 px-3 ps-lg-5 pe-lg-4 mx-auto">
+        <div class="d-lg-flex align-items-center justify-content-center min-vh-lg-80">
 
             <!-- Auth form + Footer -->
-            <div class="d-flex flex-column min-vh-100 w-100 py-4 mx-auto me-lg-5" style="max-width: 416px">
-                <!-- Session Status -->
-                <x-auth-session-status class="mb-4" :status="session('status')" />
+            <div class="d-flex flex-column min-vh-100 w-100 py-4 mx-auto" style="max-width: 416px">
+
 
                 <!-- Logo -->
                 <header class="navbar px-0 pb-4 mt-n2 mt-sm-0 mb-2 mb-md-3 mb-lg-4">
                     <x-application-logo />
+                    @if (request()->routeIs('password.request') || request()->routeIs('password.reset'))
+                        <div class="nav">
+                            <a class="nav-link animate-underline p-0" href="{{ route('login') }}" wire:navigate>
+                                <i class="fi-chevron-left ms-n1 me-1"></i>
+                                <span class="animate-target">Back to Sign In</span>
+                            </a>
+                        </div>
+                    @endif
                 </header>
+
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
 
                 {{ $slot }}
 
-                <!-- Divider -->
-                <div class="d-flex align-items-center my-4">
-                    <hr class="w-100 m-0">
-                    <span class="text-body-emphasis fw-medium text-nowrap mx-4">or continue with</span>
-                    <hr class="w-100 m-0">
-                </div>
-
                 <!-- Social login -->
-                <div class="d-flex flex-column flex-sm-row gap-3 pb-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-lg btn-outline-secondary w-100 px-2">
-                        <i class="fi-google ms-1 me-1"></i>
-                        Google
-                    </button>
-                    <button type="button" class="btn btn-lg btn-outline-secondary w-100 px-2">
-                        <i class="fi-facebook ms-1 me-1"></i>
-                        Facebook
-                    </button>
-                </div>
+                @if (request()->routeIs('login') || request()->routeIs('register'))
+                    <!-- Divider -->
+                    <div class="d-flex align-items-center my-4">
+                        <hr class="w-100 m-0">
+                        <small class="text-uppercase text-body-emphasis fw-medium text-nowrap mx-4">or continue
+                            with</small>
+                        <hr class="w-100 m-0">
+                    </div>
+
+                    <div class="d-flex flex-column flex-sm-row gap-3 pb-4 mb-3 mb-lg-4">
+                        <button type="button" class="btn btn-lg btn-outline-secondary w-100 px-2">
+                            <i class="fi-google ms-1 me-1"></i>
+                            Google
+                        </button>
+                        <button type="button" class="btn btn-lg btn-outline-secondary w-100 px-2">
+                            <i class="fi-facebook ms-1 me-1"></i>
+                            Facebook
+                        </button>
+                    </div>
+                @endif
 
                 <!-- Footer -->
                 <footer class="mt-auto">
-                    <p class="fs-xs mb-0">
+                    <p class="fs-xs text-center mb-0">
                         Copyrights © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
                     </p>
                 </footer>
             </div>
 
-            <div class="d-none d-lg-block w-100 py-4 ms-auto" style="max-width: 1034px">
-                <div class="d-flex flex-column justify-content-end h-100 bg-info-subtle rounded-5">
-                    <div class="ratio" style="--fn-aspect-ratio: calc(1030 / 1032 * 100%)">
-                        <img src="assets/img/account/account-cover.png" alt="Girl">
-                    </div>
-                </div>
-            </div>
+
         </div>
     </main>
     <!-- Bootstrap + Theme scripts -->
-    <script src="assets/js/theme.min.js"></script>
+    <script src="{{ asset('assets/js/theme.min.js') }}"></script>
 </body>
 
 </html>

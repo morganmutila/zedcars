@@ -46,7 +46,7 @@ new #[Layout('layouts.guest')] class extends Component {
         <a class="nav-link text-decoration-underline p-0 ms-2" wire:navigate href="{{ route('login') }}">Sign in</a>
     </div>
 
-    <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="register" wire:loading.class="opacity-75">
+    <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="register">
         <!-- Name -->
         <div class="mb-3">
             <x-text-input wire:model="name" label="Name" type="text" autocomplete="name" :placeholder="__('Full Name')"
