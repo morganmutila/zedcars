@@ -23,6 +23,7 @@
                             Home
                         </x-nav-link>
                     </li>
+
                     <li class="nav-item dropdown position-static py-lg-2 me-lg-n1 me-xl-0">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             data-bs-trigger="hover" aria-expanded="false">Listings</a>
@@ -182,29 +183,6 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item dropdown py-lg-2 me-lg-n1 me-xl-0">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Account</a>
-                        <ul class="dropdown-menu">
-                            <li class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Auth
-                                    Pages</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="account-signin.html">Sign In</a></li>
-                                    <li><a class="dropdown-item" href="account-signup.html">Sign Up</a></li>
-                                    <li><a class="dropdown-item" href="account-password-recovery.html">Password
-                                            Recovery</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="dropdown-item" href="account-profile.html">My Profile</a></li>
-                            <li><a class="dropdown-item" href="account-listings.html">My Listings</a></li>
-                            <li><a class="dropdown-item" href="account-reviews.html">Reviews</a></li>
-                            <li><a class="dropdown-item" href="account-favorites.html">Favorites</a></li>
-                            <li><a class="dropdown-item" href="account-payment.html">Payment Details</a></li>
-                            <li><a class="dropdown-item" href="account-settings.html">Account Settings</a></li>
-                        </ul>
-                    </li>
 
                     <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
                         <x-nav-link href="{{ route('contact') }}" role="button" :active="request()->routeIs('contact')">
@@ -224,22 +202,70 @@
         <div class="d-flex gap-sm-1 gap-3">
 
             @auth
-                <livewire:layout.navigation />
 
                 <!-- Account button -->
-                <a class="btn btn-icon btn-outline-secondary fs-lg border-0 me-2" href="{{ route('dashboard') }}"
-                    aria-label="Sign in to account">
-                    <i class="fi-user animate-target"></i>
-                </a>
+                <div class="dropdown pe-1 me-2">
+                    <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        aria-label="My account">
+                        <img src="assets/img/account/avatar-sm.jpg"
+                            class="hover-effect-target position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                            alt="Avatar">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" style="--fn-dropdown-spacer: .5rem">
+                        <li><span class="h6 dropdown-header">Michael Williams</span></li>
+                        <li>
+                            <a class="dropdown-item" href="account-profile.html">
+                                <i class="fi-user opacity-75 me-2"></i>
+                                My profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="account-listings.html">
+                                <i class="fi-layers opacity-75 me-2"></i>
+                                My listings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="account-reviews.html">
+                                <i class="fi-star opacity-75 me-2"></i>
+                                Reviews
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="account-favorites.html">
+                                <i class="fi-heart opacity-75 me-2"></i>
+                                Favorites
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="account-payment.html">
+                                <i class="fi-credit-card opacity-75 me-2"></i>
+                                Payment details
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="account-settings.html">
+                                <i class="fi-settings opacity-75 me-2"></i>
+                                Account settings
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="account-signin.html">
+                                <i class="fi-log-out opacity-75 me-2"></i>
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
                 <!-- Add property button  -->
                 <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
                     <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
                     Sell car
-                </a>
-
-                <a href="{{ route('dashboard') }}" class="btn btn-outline-primary">
-                    Dashboard
                 </a>
             @else
                 <a href="{{ route('login') }}" class="btn btn-outline-secondary">

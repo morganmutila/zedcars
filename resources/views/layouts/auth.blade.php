@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="{{ asset('assets/icons/finder-icons.min.css') }}">
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/choices.js/choices.min.css') }}">
 
     <!-- Bootstrap + Theme styles -->
@@ -48,11 +47,7 @@
         {{ $slot }}
     </main>
 
-    <!-- Page footer -->
-    <x-app.footer />
-
     <!-- Vendor scripts -->
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/choices.js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/cleave.js/cleave.min.js') }}"></script>
 

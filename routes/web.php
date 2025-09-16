@@ -17,7 +17,7 @@ Route::controller(PageController::class)->group(function () {
 // Legal Routes
 Route::view('/terms', 'terms')->name('legal.terms');
 
-// Dashboard & Profile
+// Dashboard
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 });
