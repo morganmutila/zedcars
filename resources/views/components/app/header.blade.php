@@ -221,7 +221,7 @@
         </nav>
 
         <!-- Button group -->
-        <div class="d-flex gap-sm-1">
+        <div class="d-flex gap-sm-1 gap-3">
 
             @auth
                 <livewire:layout.navigation />
