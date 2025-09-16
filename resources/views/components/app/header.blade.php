@@ -8,35 +8,7 @@
         </button>
 
         <!-- Navbar brand (Logo) -->
-        <a class="navbar-brand py-1 py-md-2 py-xl-1 me-2 me-sm-n4 me-md-n5 me-lg-0" href="index.html">
-            <span class="d-none d-sm-flex flex-shrink-0 text-primary rtl-flip me-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="34">
-                    <path
-                        d="M34.5 16.894v10.731c0 3.506-2.869 6.375-6.375 6.375H17.5h-.85C7.725 33.575.5 26.138.5 17c0-9.35 7.65-17 17-17s17 7.544 17 16.894z"
-                        fill="currentColor"></path>
-                    <g fill-rule="evenodd">
-                        <path
-                            d="M17.5 13.258c-3.101 0-5.655 2.554-5.655 5.655s2.554 5.655 5.655 5.655 5.655-2.554 5.655-5.655-2.554-5.655-5.655-5.655zm-9.433 5.655c0-5.187 4.246-9.433 9.433-9.433s9.433 4.246 9.433 9.433a9.36 9.36 0 0 1-1.569 5.192l2.397 2.397a1.89 1.89 0 0 1 0 2.671 1.89 1.89 0 0 1-2.671 0l-2.397-2.397a9.36 9.36 0 0 1-5.192 1.569c-5.187 0-9.433-4.246-9.433-9.433z"
-                            fill="#000" fill-opacity=".05"></path>
-                        <g fill="#fff">
-                            <path
-                                d="M17.394 10.153c-3.723 0-6.741 3.018-6.741 6.741s3.018 6.741 6.741 6.741 6.741-3.018 6.741-6.741-3.018-6.741-6.741-6.741zM7.347 16.894A10.05 10.05 0 0 1 17.394 6.847 10.05 10.05 0 0 1 27.44 16.894 10.05 10.05 0 0 1 17.394 26.94 10.05 10.05 0 0 1 7.347 16.894z">
-                            </path>
-                            <path
-                                d="M23.025 22.525c.645-.645 1.692-.645 2.337 0l3.188 3.188c.645.645.645 1.692 0 2.337s-1.692.645-2.337 0l-3.187-3.187c-.645-.646-.645-1.692 0-2.337z">
-                            </path>
-                        </g>
-                    </g>
-                    <path
-                        d="M23.662 14.663c2.112 0 3.825-1.713 3.825-3.825s-1.713-3.825-3.825-3.825-3.825 1.713-3.825 3.825 1.713 3.825 3.825 3.825z"
-                        fill="#fff"></path>
-                    <path fill-rule="evenodd"
-                        d="M23.663 8.429a2.41 2.41 0 0 0-2.408 2.408 2.41 2.41 0 0 0 2.408 2.408 2.41 2.41 0 0 0 2.408-2.408 2.41 2.41 0 0 0-2.408-2.408zm-5.242 2.408c0-2.895 2.347-5.242 5.242-5.242s5.242 2.347 5.242 5.242-2.347 5.242-5.242 5.242-5.242-2.347-5.242-5.242z"
-                        fill="currentColor"></path>
-                </svg>
-            </span>
-            Finder
-        </a>
+        <x-application-logo class="navbar-brand py-1 py-md-2 py-xl-1 me-2 me-sm-n4 me-md-n5 me-lg-0" />
 
         <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
         <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
@@ -47,8 +19,9 @@
             <div class="offcanvas-body pt-2 pb-4 py-lg-0 mx-lg-auto">
                 <ul class="navbar-nav position-relative">
                     <li class="nav-item py-lg-2 me-lg-n1 me-xl-0">
-                        <a class="nav-link" aria-current="page" href="{{ route('home') }}" role="button"
-                            aria-expanded="false">Home</a>
+                        <x-nav-link href="{{ route('home') }}" role="button" :active="request()->routeIs('home')">
+                            Home
+                        </x-nav-link>
                     </li>
                     <li class="nav-item dropdown position-static py-lg-2 me-lg-n1 me-xl-0">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -232,90 +205,16 @@
                             <li><a class="dropdown-item" href="account-settings.html">Account Settings</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown py-lg-2 me-lg-n1 me-xl-0">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
-                        <ul class="dropdown-menu">
-                            <li class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#!" role="button"
-                                    data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">About</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="about-v1.html">About v.1</a></li>
-                                    <li><a class="dropdown-item" href="about-v2.html">About v.2</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="blog-layout-v1.html">Blog Layout v.1</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="blog-layout-v2.html">Blog Layout v.2</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="blog-layout-v3.html">Blog Layout v.3</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="blog-layout-v4.html">Blog Layout v.4</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="blog-single-v1.html">Single Post v.1</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="blog-single-v2.html">Single Post v.2</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="blog-single-v3.html">Single Post v.3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" data-bs-trigger="hover"
-                                    aria-expanded="false">Contact</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
-                                    <li><a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
-                                    <li><a class="dropdown-item" href="contact-v3.html">Contact v.3</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Help
-                                    Center</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="help-topics-v1.html">Help Topics v.1</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="help-topics-v2.html">Help Topics v.2</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="help-topics-v3.html">Help Topics v.3</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="help-single-article-v1.html">Help Single
-                                            Article v.1</a></li>
-                                    <li><a class="dropdown-item" href="help-single-article-v2.html">Help Single
-                                            Article v.2</a></li>
-                                    <li><a class="dropdown-item" href="help-single-article-v3.html">Help Single
-                                            Article v.3</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">404
-                                    Error</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="404-bg-image.html">Background Image (Real
-                                            Estate)</a></li>
-                                    <li><a class="dropdown-item" href="404-icon.html">Icon Image (Cars)</a></li>
-                                    <li><a class="dropdown-item" href="404-split-screen.html">Split Screen
-                                            (Contractors)</a></li>
-                                    <li><a class="dropdown-item" href="404-illustration.html">Illustration (City
-                                            Guide)</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="dropdown-item" href="terms-and-conditions.html">Terms &amp;
-                                    Conditions</a></li>
-                        </ul>
+
+                    <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
+                        <x-nav-link href="{{ route('contact') }}" role="button" :active="request()->routeIs('contact')">
+                            Contact Us
+                        </x-nav-link>
                     </li>
                     <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
-                        <a class="nav-link" href="docs/installation.html">Docs</a>
-                    </li>
-                    <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
-                        <a class="nav-link" href="docs/typography.html">Components</a>
+                        <x-nav-link href="{{ route('about') }}" role="button" :active="request()->routeIs('about')">
+                            About Us
+                        </x-nav-link>
                     </li>
                 </ul>
             </div>
@@ -328,18 +227,18 @@
                 <livewire:layout.navigation />
 
                 <!-- Account button -->
-                <a class="btn btn-icon btn-outline-secondary fs-lg border-0 me-2" href="account-signin.html"
+                <a class="btn btn-icon btn-outline-secondary fs-lg border-0 me-2" href="{{ route('dashboard') }}"
                     aria-label="Sign in to account">
                     <i class="fi-user animate-target"></i>
                 </a>
 
                 <!-- Add property button  -->
-                <a class="btn btn-primary animate-scale" href="add-car.html">
+                <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
                     <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
                     Sell car
                 </a>
 
-                <a href="{{ url('/dashboard') }}" class="btn btn-outline-primary">
+                <a href="{{ route('dashboard') }}" class="btn btn-outline-primary">
                     Dashboard
                 </a>
             @else

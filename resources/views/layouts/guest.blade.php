@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="light" data-pwa="true">
 
 <head>
     <meta charset="utf-8">
@@ -43,7 +43,9 @@
                 <x-auth-session-status class="mb-4" :status="session('status')" />
 
                 <!-- Logo -->
-                <x-application-logo />
+                <header class="navbar px-0 pb-4 mt-n2 mt-sm-0 mb-2 mb-md-3 mb-lg-4">
+                    <x-application-logo />
+                </header>
 
                 {{ $slot }}
 

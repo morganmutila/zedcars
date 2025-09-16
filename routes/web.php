@@ -10,16 +10,19 @@ Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
 // About Company Routes
 Route::controller(PageController::class)->group(function () {
-    Route::get('/about-us', 'about')->name('about');
-    Route::get('/contact-us', 'contact')->name('contact');
-    Route::get('/careers', 'careers')->name('careers');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/contact', 'contact')->name('contact');
 });
 
+// Legal Routes
+Route::view('/terms', 'terms')->name('legal.terms');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Dashboard & Profile
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::view('dashboard', 'dashboard')->name('dashboard');
+});
 
+// Profile
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');

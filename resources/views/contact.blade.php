@@ -1,102 +1,162 @@
-<x-app-layout title="Contact Us">
+<x-app-layout>
+
+    <x-slot:title>
+        Contact Us - {{ config('app.name') }}
+    </x-slot:title>
+
+    <!-- Hero / page title -->
+    <div class="position-relative py-5">
+        <div class="container position-relative z-2 py-sm-2 py-md-4 py-lg-5 my-lg-3 my-xl-4">
+            <h1 class="display-4 text-white mb-0 my-xxl-3">Looking for support?</h1>
+        </div>
+        <img src="assets/img/contact/v2/hero.jpg"
+            class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rtl-flip" alt="Background image">
+        <span class="position-absolute top-0 start-0 w-100 h-100 z-1 rtl-flip"
+            style="background: linear-gradient(-270deg, rgba(0,0,0, .60) 0%, rgba(0,0,0, 0) 100%)"></span>
+    </div>
 
 
-    <main class="main">
-
-        <x-page-title title="Contact Us">
-            To contact us, please use the form or give us a call, send an email to contact Profout with the contact
-            details that are listed below.
-        </x-page-title>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-main-wrapper">
-                    <div class="map-wrapper">
-                        {!! $settingsGlobal->map_location !!}
-                    </div>
-
-                    <div class="contact-content">
-                        <div class="contact-cards-container" data-aos="fade-up" data-aos-delay="300">
-                            <div class="contact-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-geo-alt"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Location</h4>
-                                    <p>{{ $settingsGlobal->address }}</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-envelope"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Email</h4>
-                                    <p>{{ $settingsGlobal->email }}</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-telephone"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Call</h4>
-                                    <p>{{ $settingsGlobal->phone }}</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-clock"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Open Hours</h4>
-                                    <p>Monday - Friday: 8HRS - 17HRS<br><span class="fs-6">Excluding public
-                                            Holidays</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-form-container d-flex flex-column" data-aos="fade-up" data-aos-delay="400">
-                            <h3>Leave us a message</h3>
-                            <p>Send an email to contact Profout. Our dedicated team will reply to the email on any
-                                enquiries on the products and services.</p>
-
-                            <livewire:client-contact-form />
-                        </div>
-                    </div>
+    <!-- Contact details -->
+    <section class="container pt-5 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 g-lg-5 pt-sm-2 pt-md-3 pt-lg-5 mb-n2 mb-sm-0">
+            <div class="col pb-2 pb-sm-0">
+                <div class="position-relative">
+                    <svg class="d-block mb-3 mb-sm-4" xmlns="http://www.w3.org/2000/svg" width="64"
+                        viewBox="0 0 64 64">
+                        <path class="d-none-dark"
+                            d="M31.999.001C14.327.001 0 14.327 0 32s14.327 31.999 31.999 31.999S63.999 49.673 63.999 32 49.672.001 31.999.001zm0 47.134c-8.359 0-15.135-6.776-15.135-15.135s6.776-15.135 15.135-15.135S47.134 23.641 47.134 32s-6.776 15.135-15.135 15.135z"
+                            fill="#e8e8e8"></path>
+                        <path class="d-none d-block-dark"
+                            d="M31.999.001C14.327.001 0 14.327 0 32s14.327 31.999 31.999 31.999S63.999 49.673 63.999 32 49.672.001 31.999.001zm0 47.134c-8.359 0-15.135-6.776-15.135-15.135s6.776-15.135 15.135-15.135S47.134 23.641 47.134 32s-6.776 15.135-15.135 15.135z"
+                            fill="currentColor" style="color: var(--fn-secondary-bg)"></path>
+                        <path class="d-none-dark"
+                            d="M4.844 32C4.844 15.142 17.88 1.329 34.422.091A32.27 32.27 0 0 0 32 .001C14.328.001.001 14.327.001 32S14.328 63.999 32 63.999a32.23 32.23 0 0 0 2.421-.09C17.88 62.671 4.844 48.858 4.844 32zm31.999-15.135a14.95 14.95 0 0 0-2.422.195C41.63 18.217 47.135 24.465 47.135 32S41.63 45.783 34.422 46.94a14.97 14.97 0 0 0 2.422.195c8.359 0 15.135-6.776 15.135-15.135s-6.776-15.135-15.135-15.135z"
+                            fill="#c1c0bf"></path>
+                        <path class="d-none d-block-dark"
+                            d="M4.844 32C4.844 15.142 17.88 1.329 34.422.091A32.27 32.27 0 0 0 32 .001C14.328.001.001 14.327.001 32S14.328 63.999 32 63.999a32.23 32.23 0 0 0 2.421-.09C17.88 62.671 4.844 48.858 4.844 32zm31.999-15.135a14.95 14.95 0 0 0-2.422.195C41.63 18.217 47.135 24.465 47.135 32S41.63 45.783 34.422 46.94a14.97 14.97 0 0 0 2.422.195c8.359 0 15.135-6.776 15.135-15.135s-6.776-15.135-15.135-15.135z"
+                            fill="currentColor" style="color: var(--fn-tertiary-bg)"></path>
+                        <path class="text-primary"
+                            d="M63.999 32a26.02 26.02 0 0 0-12.063-1.149c-1.623.229-3.231.611-4.8 1.149 0 7.535-5.505 13.782-12.712 14.94h-.001a14.97 14.97 0 0 1-2.421.195h-.001c-1.828 5.338-1.87 11.121-.128 16.48l.128.383v.001h.001l.428-.003.346-.007.462-.014.395-.017c.012-.001.025-.001.037-.003l.387-.022c.123-.007.245-.016.367-.025C50.964 62.671 64 48.858 64 32h-.001zM31.999.002V.001C14.326.002.001 14.327.001 32h.001c1.588-.545 3.217-.93 4.861-1.158 4.012-.555 8.124-.169 12.002 1.159 0-8.359 6.775-15.134 15.134-15.135-1.828-5.338-1.87-11.121-.128-16.48l.128-.383z"
+                            fill="currentColor"></path>
+                        <path class="text-primary-emphasis"
+                            d="M31.999.002V.001C14.326.002.001 14.327.001 32h.001c1.588-.545 3.217-.93 4.861-1.158C5.415 15.383 16.931 2.716 31.871.385l.128-.383zm19.936 30.849c-1.623.229-3.231.611-4.8 1.149 0 7.535-5.505 13.782-12.712 14.94.789.129 1.596.195 2.42.195 8.359 0 15.135-6.776 15.135-15.135a15.2 15.2 0 0 0-.043-1.149z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <h3 class="h4 pb-1 mb-2">
+                        <a class="hover-effect-underline stretched-link" href="#!">Help center</a>
+                    </h3>
+                    <p class="mb-0">Check out Finder helpful blog articles for answers and tips.</p>
                 </div>
             </div>
-        </section>
-
-        <section id="clients" class="clients section">
-
-            <div class="container my-md-5" data-aos="fade-up">
-                <h2 class="section-heading fw-bold">Our Client Portfolio</h2>
-            </div>
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row">
-                    <div class="clients-slider d-flex flex-wrap gap-3 gap-md-5 align-items-center px-2 p-md-0">
-                        @foreach ($clients as $client)
-                            <div class="col-3 col-md-4 col-lg-1">
-                                <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid"
-                                    alt="{{ $client->name }}">
-                            </div>
-                        @endforeach
-                    </div>
-
+            <div class="col pb-2 pb-sm-0">
+                <svg class="d-block mb-3 mb-sm-4" xmlns="http://www.w3.org/2000/svg" width="64" viewBox="0 0 64 64">
+                    <path class="text-warning"
+                        d="M60.532 57.082c-.964 0-1.886-.368-2.585-1.009-.698.642-1.621 1.009-2.584 1.009s-1.886-.368-2.584-1.009c-.698.642-1.621 1.009-2.584 1.009a3.83 3.83 0 0 1-3.081-1.564.3.3 0 0 0-.236-.128.27.27 0 0 0-.22.098c-.334.394-.924.444-1.319.11s-.444-.924-.11-1.319c.428-.506 1.051-.784 1.714-.759.669.024 1.282.349 1.68.892a1.93 1.93 0 0 0 1.571.798 1.95 1.95 0 0 0 1.583-.814c.231-.322.605-.515 1.002-.515s.771.193 1.002.515a1.95 1.95 0 0 0 3.165 0c.231-.322.605-.515 1.002-.515s.771.193 1.002.515a1.95 1.95 0 0 0 1.583.814c.713 0 1.369-.39 1.71-1.017.247-.454.816-.622 1.269-.374s.621.815.374 1.269c-.67 1.23-1.955 1.994-3.354 1.994z"
+                        fill="currentColor"></path>
+                    <path class="text-info"
+                        d="M55.896 9.484H32.73a7.86 7.86 0 0 0-7.86 7.86v7.579c0 3.717 2.58 6.831 6.047 7.649a1.24 1.24 0 0 1 .966 1.202v4.354a.5.5 0 0 0 .852.353l5.149-5.149a1.87 1.87 0 0 1 1.323-.548h16.689a7.86 7.86 0 0 0 7.86-7.86v-7.579a7.86 7.86 0 0 0-7.86-7.86z"
+                        fill="currentColor"></path>
+                    <path
+                        d="M46.171 26.19c.372 0 .724-.224.87-.59l3.517-8.843c.191-.48-.043-1.024-.524-1.215s-1.024.043-1.215.524l-3.517 8.843c-.253.598.225 1.294.869 1.282zm8.25.093a.94.94 0 0 0 1.233-.48l3.887-8.843c.281-.592-.202-1.331-.857-1.312h-4.865c-.517 0-.936.419-.936.936s.419.936.936.936h3.431l-3.311 7.531c-.208.473.007 1.025.48 1.233z"
+                        fill="#f9f6f9"></path>
+                    <path
+                        d="M36.837 23.58h3.48l-.013 1.666c-.004.517.411.939.928.944h.008c.513 0 .931-.414.936-.928l.013-1.682c.58.073 1.143-.326 1.137-.936.005-.604-.548-1.006-1.125-.936l-.007-4.762c-.057-.68-.464-1.235-1.037-1.412-.568-.176-1.174.046-1.62.594-.5.613-2.82 4.796-3.519 6.064-.352.594.129 1.409.819 1.388zm3.504-5.23l-.012 3.359h-1.903l1.915-3.359zm-7.666 2.177l-2.687 3.686c-.556.728-.786 1.029-.625 1.552.094.306.326.54.635.643.125.042.253.084 1.965.084l2.849-.022c.517-.006.93-.431.924-.948s-.424-.924-.935-.924l-2.772.02 2.18-3.019c.684-1.018 1.083-1.785 1.153-2.798 0-1.764-1.435-3.198-3.199-3.198-1.525 0-2.845 1.085-3.139 2.579-.1.507.231.999.738 1.099s.999-.231 1.099-.738a1.33 1.33 0 0 1 1.302-1.069 1.33 1.33 0 0 1 1.326 1.275c-.07.607-.352 1.087-.814 1.777z"
+                        fill="#f9f6f9"></path>
+                    <path class="text-warning"
+                        d="M39.522 39.425l-3.537 3.537c-.91.91-2.345 1.026-3.389.274l-2.486-1.79A57.48 57.48 0 0 1 17.044 28.38l-1.79-2.486c-.752-1.044-.636-2.479.274-3.389l3.537-3.537a2.9 2.9 0 0 0 .254-3.814l-6.462-8.457c-1.11-1.453-3.246-1.595-4.54-.302L2.453 12.26c-2.009 2.009-2.862 4.9-2.267 7.678C1.391 25.556 3.73 30.87 7.06 35.553l1.355 1.906a53.56 53.56 0 0 0 12.616 12.616l1.906 1.355c4.683 3.33 9.997 5.669 15.616 6.873 2.778.596 5.669-.258 7.678-2.267l5.864-5.864c1.293-1.293 1.151-3.429-.302-4.54l-8.456-6.462a2.9 2.9 0 0 0-3.814.254z"
+                        fill="currentColor"></path>
+                    <g class="text-warning-emphasis" fill="currentColor">
+                        <path
+                            d="M51.793 45.634l-1.697-1.297a3.05 3.05 0 0 1-.288.334l-5.864 5.864c-2.009 2.009-4.9 2.862-7.678 2.267-5.619-1.205-10.932-3.544-15.616-6.873l-1.906-1.355c-4.881-3.47-9.145-7.735-12.616-12.616l-1.355-1.906a42.24 42.24 0 0 1-3.324-5.525A42.22 42.22 0 0 0 7.06 35.553l1.355 1.906c3.47 4.881 7.735 9.145 12.616 12.616l1.906 1.355c4.683 3.33 9.997 5.669 15.616 6.873 2.778.596 5.669-.258 7.678-2.267l5.864-5.864c1.293-1.293 1.151-3.429-.302-4.54z">
+                        </path>
+                        <path
+                            d="M50.992 51.274l1.101-1.101c1.293-1.293 1.151-3.429-.302-4.54l-8.456-6.462a2.9 2.9 0 0 0-3.814.254l-1.748 1.748 13.219 10.102zM17.318 20.716l1.748-1.748a2.9 2.9 0 0 0 .254-3.814l-6.462-8.457c-1.11-1.453-3.246-1.595-4.54-.302L7.216 7.497l10.102 13.219z">
+                        </path>
+                    </g>
+                </svg>
+                <h3 class="h4 pb-1 mb-2">Contact support</h3>
+                <p class="pb-1 mb-2">Contact us and we will be happy to help you!</p>
+                <div class="nav gap-2">
+                    <a class="nav-link hover-effect-underline fs-base p-0 me-3"
+                        href="mailto:support@example.com">support@example.com</a>
+                    <a class="nav-link hover-effect-underline fs-base p-0" href="tel:4065550120">(406)&nbsp;555‑0120</a>
                 </div>
             </div>
+            <div class="col pb-2 pb-sm-0">
+                <div class="position-relative">
+                    <svg class="d-block mb-3 mb-sm-4" xmlns="http://www.w3.org/2000/svg" width="64"
+                        viewBox="0 0 64 64">
+                        <path class="d-none-dark"
+                            d="M56.76 4.972H12.071l-1.389.488-1.732 1.846-1.803 2.874v36.606l2.672 2.672 3.445 1.384 5.924.676 1.945.667a4.03 4.03 0 0 1 3.206-1.589h32.422A7.24 7.24 0 0 0 64 43.357V12.211a7.24 7.24 0 0 0-7.239-7.239z"
+                            fill="currentColor" style="color: var(--fn-info-bg-subtle)"></path>
+                        <path class="d-none d-block-dark opacity-75"
+                            d="M56.76 4.972H12.071l-1.389.488-1.732 1.846-1.803 2.874v36.606l2.672 2.672 3.445 1.384 5.924.676 1.945.667a4.03 4.03 0 0 1 3.206-1.589h32.422A7.24 7.24 0 0 0 64 43.357V12.211a7.24 7.24 0 0 0-7.239-7.239z"
+                            fill="currentColor" style="color: var(--fn-secondary-bg)"></path>
+                        <path class="d-none-dark"
+                            d="M18.388 50.597h-3.533a7.24 7.24 0 0 1-7.239-7.239V12.211a7.24 7.24 0 0 1 7.239-7.239H7.239A7.24 7.24 0 0 0 0 12.211v31.146a7.24 7.24 0 0 0 7.239 7.239h3.533a4.03 4.03 0 0 1 3.787 2.65l1.806 4.949a1.27 1.27 0 0 0 2.38 0l1.806-4.949c.184-.505.464-.957.812-1.338a4.03 4.03 0 0 0-2.975-1.312z"
+                            fill="currentColor" style="color: var(--fn-info-border-subtle)"></path>
+                        <path class="d-none d-block-dark"
+                            d="M18.388 50.597h-3.533a7.24 7.24 0 0 1-7.239-7.239V12.211a7.24 7.24 0 0 1 7.239-7.239H7.239A7.24 7.24 0 0 0 0 12.211v31.146a7.24 7.24 0 0 0 7.239 7.239h3.533a4.03 4.03 0 0 1 3.787 2.65l1.806 4.949a1.27 1.27 0 0 0 2.38 0l1.806-4.949c.184-.505.464-.957.812-1.338a4.03 4.03 0 0 0-2.975-1.312z"
+                            fill="currentColor" style="color: var(--fn-tertiary-bg)"></path>
+                        <path class="text-info"
+                            d="M32 44.423c9.189 0 16.638-7.449 16.638-16.638S41.189 11.146 32 11.146s-16.638 7.449-16.638 16.638S22.811 44.423 32 44.423z"
+                            fill="currentColor"></path>
+                        <g class="text-info-emphasis" fill="currentColor">
+                            <path
+                                d="M22.639 27.784c0-7.939 5.561-14.578 12.999-16.238-1.171-.261-2.389-.4-3.639-.4-9.189 0-16.638 7.449-16.638 16.638S22.811 44.423 32 44.423a16.69 16.69 0 0 0 3.639-.4c-7.439-1.66-12.999-8.299-12.999-16.238z">
+                            </path>
+                            <path
+                                d="M49.604 27.784c0-9.474-7.637-17.604-17.604-17.604-9.947 0-17.604 8.112-17.604 17.604 0 9.474 7.637 17.604 17.604 17.604 9.947 0 17.604-8.112 17.604-17.604zm-33.246.966h5.189c.079 2.506.465 4.916 1.126 7.099-.936.587-1.822 1.268-2.647 2.036a15.6 15.6 0 0 1-3.669-9.135zm3.669-11.066c.825.768 1.711 1.449 2.647 2.036-.661 2.183-1.047 4.593-1.126 7.099h-5.189a15.6 15.6 0 0 1 3.669-9.135zm27.615 9.135h-5.19c-.079-2.506-.465-4.916-1.126-7.099a17.68 17.68 0 0 0 2.647-2.036 15.6 15.6 0 0 1 3.669 9.135zm-8.664-7.994a15.53 15.53 0 0 1-6.012 1.598v-8.206c2.906.621 4.927 3.808 6.012 6.609zm-7.944-6.609v8.206a15.53 15.53 0 0 1-6.012-1.598c1.085-2.799 3.105-5.987 6.012-6.609zm0 10.142v4.462H23.48c.073-2.167.389-4.247.926-6.144a17.46 17.46 0 0 0 6.627 1.683zm0 6.393v4.461c-2.332.124-4.573.699-6.627 1.683-.537-1.897-.854-3.977-.926-6.144h7.554zm0 6.397v8.206c-2.906-.621-4.927-3.807-6.012-6.609a15.53 15.53 0 0 1 6.012-1.598zm1.932 8.206v-8.206a15.53 15.53 0 0 1 6.012 1.598c-1.084 2.799-3.105 5.987-6.012 6.609zm0-10.141V28.75h7.554c-.073 2.167-.389 4.247-.926 6.144-2.054-.983-4.295-1.558-6.627-1.683zm0-6.393v-4.462c2.332-.124 4.573-.699 6.627-1.683.537 1.897.854 3.977.926 6.144h-7.553 0zm7.7-8.972c-.654-1.62-1.516-3.197-2.659-4.537 1.72.716 3.285 1.731 4.632 2.978a15.77 15.77 0 0 1-1.974 1.558zM25.993 13.31c-1.145 1.343-2.007 2.921-2.658 4.537a15.76 15.76 0 0 1-1.974-1.558c1.347-1.247 2.912-2.262 4.632-2.978zm-2.658 24.413c.652 1.615 1.514 3.194 2.659 4.537-1.72-.716-3.285-1.731-4.632-2.978a15.78 15.78 0 0 1 1.974-1.559zm14.673 4.537c1.144-1.342 2.006-2.92 2.659-4.537a15.77 15.77 0 0 1 1.974 1.559c-1.347 1.247-2.913 2.262-4.632 2.978zm3.319-6.41c.661-2.183 1.047-4.593 1.126-7.099h5.19a15.6 15.6 0 0 1-3.669 9.135c-.825-.768-1.711-1.449-2.647-2.036z">
+                            </path>
+                        </g>
+                    </svg>
+                    <h3 class="h4 pb-1 mb-2">
+                        <a class="hover-effect-underline stretched-link" href="#!">Community</a>
+                    </h3>
+                    <p class="mb-0">Connect with other makers to ask questions and share knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        </section>
 
-    </main>
+    <!-- Contact form -->
+    <section class="container pt-5 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
+        <div class="bg-info-subtle rounded overflow-hidden">
+            <div class="row g-0">
+
+                <!-- Image -->
+                <div class="col-md-6 position-relative">
+                    <img src="assets/img/contact/v2/contcat-form.jpg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="Image">
+                </div>
+
+                <!-- Form -->
+                <div class="col-md-6">
+                    <form
+                        class="needs-validation pt-4 pt-sm-5 pb-5 px-4 px-sm-5 mt-3 mt-sm-0 my-lg-3 my-xl-4 mx-lg-3 mx-xl-5"
+                        novalidate="">
+                        <h2 class="h4 mb-4">Get in touch!</h2>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Full name *"
+                                required="">
+                            <div class="invalid-feedback">Please enter your full name!</div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg text-start"
+                                placeholder="Email *" required="">
+                            <div class="invalid-feedback">Please provide a valid email address!</div>
+                        </div>
+                        <div class="mb-4">
+                            <textarea class="form-control form-control-lg" rows="5" placeholder="Your message *" required=""></textarea>
+                            <div class="invalid-feedback">Please write your message!</div>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-dark w-100">Submit form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 </x-app-layout>
