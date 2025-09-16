@@ -1,36 +1,63 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="light" data-pwa="true">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- SEO Meta Tags -->
+    <title>{{ $title }} | {{ config('app.name') }} </title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <meta name="description" content="{{ config('app.name') }} - ">
+    <meta name="keywords" content="car dealer, cars">
+    <meta name="author" content="Morgan Mutila">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            <livewire:layout.navigation />
+    <!-- Webmanifest + Favicon / App icons -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="{{ asset('assets/app-icons/icon-32x32.png') }}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ asset('assets/app-icons/icon-180x180.png') }}">
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    <!-- Preloaded local web font (Inter) -->
+    <link rel="preload" href="{{ asset('assets/fonts/inter-variable-latin.woff2') }}" as="font" type="font/woff2"
+        crossorigin="">
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+    <!-- Font icons -->
+    <link rel="preload" href="{{ asset('assets/icons/finder-icons.woff2') }}" as="font" type="font/woff2"
+        crossorigin="">
+    <link rel="stylesheet" href="{{ asset('assets/icons/finder-icons.min.css') }}">
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/choices.js/choices.min.css') }}">
+
+    <!-- Bootstrap + Theme styles -->
+    <link rel="preload" href="{{ asset('assets/css/theme.min.css') }}" as="style">
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}" id="theme-styles">
+</head>
+
+<body>
+
+    <!-- Navigation bar (Page header) -->
+    <x-app.header />
+
+
+    <!-- Page content -->
+    <main class="content-wrapper">
+        {{ $slot }}
+    </main>
+
+    <!-- Page footer -->
+    <x-app.footer />
+
+    <!-- Vendor scripts -->
+    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/choices.js/choices.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/cleave.js/cleave.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+</body>
+
 </html>

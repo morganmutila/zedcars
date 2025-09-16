@@ -1,8 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 
-Route::view('/', 'home');
+
+// Home
+Route::get('/', [HomeController::class, '__invoke'])->name('home');
+
+// About Company Routes
+Route::controller(PageController::class)->group(function () {
+    Route::get('/about-us', 'about')->name('about');
+    Route::get('/contact-us', 'contact')->name('contact');
+    Route::get('/careers', 'careers')->name('careers');
+});
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
