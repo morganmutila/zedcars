@@ -17,14 +17,14 @@ Route::controller(PageController::class)->group(function () {
 // Legal Routes
 Route::view('/terms', 'terms')->name('legal.terms');
 
-// Dashboard
+
 Route::middleware(['auth', 'verified'])->group(function () {
+    // Dashboard
     Route::view('dashboard', 'dashboard')->name('dashboard');
+    // Profile
+    Route::view('profile', 'profile')->name('profile');
 });
 
-// Profile
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+
 
 require __DIR__.'/auth.php';

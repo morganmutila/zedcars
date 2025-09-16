@@ -5,38 +5,16 @@
     <!-- Hero with search form -->
     <section class="position-relative bg-info overflow-hidden py-5">
         <div class="container position-relative z-2 pb-2 py-sm-3 py-md-4 py-lg-5 my-lg-3 my-xl-4 my-xxl-5">
-            <div class="row align-items-center pt-lg-2 pb-lg-3 pb-xl-4 pb-xxl-5">
+            <div class="row flex-column align-items-center pt-lg-2 pb-lg-3 pb-xl-4 pb-xxl-5">
 
                 <!-- Heading -->
-                <div class="col-lg-4 order-lg-2 text-center text-lg-start pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-5 mb-lg-0">
-                    <h1 class="display-4 text-white">Easy way to find the right car</h1>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start"
-                        data-bs-theme="dark">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none">
-                            <path
-                                d="M25.176 14.273c0-.79-.064-1.585-.201-2.362h-10.97v4.479h6.281c-.129.715-.401 1.397-.8 2.005a5.38 5.38 0 0 1-1.524 1.529v2.905h3.747c2.202-2.024 3.465-5.017 3.465-8.555h.001z"
-                                fill="#2a84fc"></path>
-                            <path
-                                d="M14.008 25.636c3.136 0 5.782-1.029 7.709-2.807l-3.748-2.906c-1.043.709-2.388 1.111-3.957 1.111-3.033 0-5.607-2.046-6.53-4.799H3.614v2.996a11.63 11.63 0 0 0 10.394 6.405z"
-                                fill="#00ac47"></path>
-                            <path
-                                d="M7.476 16.235c-.487-1.444-.487-3.009 0-4.453V8.785H3.612a11.64 11.64 0 0 0 0 10.445l3.864-2.996v.001z"
-                                fill="#ffba00"></path>
-                            <path
-                                d="M14.008 6.979a6.32 6.32 0 0 1 4.461 1.743l3.32-3.32a11.18 11.18 0 0 0-7.782-3.025A11.63 11.63 0 0 0 3.614 8.785l3.864 2.998c.918-2.757 3.495-4.804 6.53-4.804z"
-                                fill="#fc2c25"></path>
-                        </svg>
-                        <div class="fs-sm text-secondary-emphasis ms-1 me-3">Google</div>
-                        <i class="fi-star-filled fs-xl text-warning me-1"></i>
-                        <div class="fs-sm text-secondary-emphasis">4.9</div>
-                    </div>
+                <div class="col-12 text-lg-start pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-5 mb-lg-0">
+                    <h1 class="text-center display-4 text-white">Easy way to find the right car</h1>
                 </div>
 
-
                 <!-- Search form -->
-                <div class="col-lg-8 order-lg-1">
-                    <div class="bg-white rounded p-4 mb-4 me-lg-4 me-xxl-0"
-                        style="max-width: 816px; --fn-bg-opacity: .08">
+                <div class="col-12">
+                    <div class="bg-white rounded p-4 mb-4 mx-auto" style="--fn-bg-opacity: .08">
                         <form class="p-sm-2" data-bs-theme="light">
                             <div class="d-flex justify-content-center justify-content-md-start gap-2 gap-sm-3 mb-4"
                                 data-bs-theme="dark">
@@ -50,6 +28,7 @@
                                 <label for="used-cars" class="btn btn-outline-secondary rounded-pill"
                                     style="--fn-btn-border-color: rgba(255,255,255, .15)">Used cars</label>
                             </div>
+
                             <div class="row row-cols-1 row-cols-md-2 g-3">
                                 <div class="col d-flex flex-column gap-3">
                                     <select class="form-select" data-select="{&quot;searchEnabled&quot;: true}"
@@ -109,11 +88,10 @@
                                     <div class="input-group">
                                         <div class="w-50">
                                             <select class="form-select rounded-end-0"
-                                                data-select="{
-                        &quot;classNames&quot;: {
-                            &quot;containerInner&quot;: [&quot;form-select&quot;, &quot;rounded-end-0&quot;]
-                        }
-                        }"
+                                                data-select="{ &quot;classNames&quot;: {
+                                                        &quot;containerInner&quot;: [&quot;form-select&quot;, &quot;rounded-end-0&quot;]
+                                                    }
+                                                }"
                                                 aria-label="Car year from select" data-bs-theme="light">
                                                 <option value="">Year from</option>
                                                 <option value="2025">2025</option>
@@ -175,12 +153,6 @@
                                     <i class="fi-search fs-base me-2 ms-n1"></i>
                                     Search
                                 </button>
-                                <div class="nav" data-bs-theme="dark">
-                                    <a class="nav-link position-relative pe-0" href="#!">
-                                        <span class="hover-effect-underline stretched-link">Advanced search</span>
-                                        <i class="fi-chevron-right fs-base ms-1 me-n1"></i>
-                                    </a>
-                                </div>
                             </div>
                         </form>
                     </div>

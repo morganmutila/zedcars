@@ -215,7 +215,7 @@ new class extends Component {
         </nav>
 
         <!-- Button group -->
-        <div class="d-flex gap-sm-1 gap-3">
+        <div class="d-flex gap-3">
 
             @auth
 
@@ -229,12 +229,17 @@ new class extends Component {
                             alt="Avatar">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" style="--fn-dropdown-spacer: .5rem">
-                        <li><span class="h6 dropdown-header" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
-                                x-on:profile-updated.window="name = $event.detail.name"></span></li>
-                        <li><span class="h6 dropdown-header" x-data="{{ json_encode(['email' => auth()->user()->email]) }}" x-text="email"
-                                x-on:profile-updated.window="email = $event.detail.email"></span></li>
+                        <li><span class="h6 dropdown-header pb-0" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
+                                x-on:profile-updated.window="name = $event.detail.name"></span>
+                        </li>
+                        <li><small class="text-muted pt-0 dropdown-header" x-data="{{ json_encode(['email' => auth()->user()->email]) }}" x-text="email"
+                                x-on:profile-updated.window="email = $event.detail.email"></small>
+                        </li>
                         <li>
-                            <a class="dropdown-item" :href="route('profile')" wire:navigate>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
                                 <i class="fi-user opacity-75 me-2"></i>
                                 My profile
                             </a>
