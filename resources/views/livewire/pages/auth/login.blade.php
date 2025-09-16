@@ -41,13 +41,13 @@ new #[Layout('layouts.guest')] class extends Component {
         <!-- Email Address -->
         <div class="mb-3">
             <x-text-input wire:model="form.email" id="email" type="email" autocomplete="username" :placeholder="__('Email')"
-                label="Email" :messages="$errors->get('form.email')" />
+                :messages="$errors->get('form.email')" />
         </div>
 
 
         <div class="mb-3">
             <x-text-input wire:model="form.password" id="password" type="password" autocomplete="current-password"
-                :placeholder="__('Password')" label="Password" :messages="$errors->get('form.password')" />
+                :placeholder="__('Password')" :messages="$errors->get('form.password')" />
         </div>
 
         <div class="d-flex align-items-center justify-content-between mb-4">
