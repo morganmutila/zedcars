@@ -76,7 +76,7 @@ new #[Layout('layouts.guest')] class extends Component {
 
         <div class="flex items-center justify-end mt-4">
 
-            <x-primary-button class="btn-lg w-100">
+            <x-primary-button class="btn-lg w-100" type="submit">
                 {{ __('Create an account') }}
             </x-primary-button>
         </div>
