@@ -109,10 +109,7 @@ new class extends Component {
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-property-details.html">Property Details</a>
                                         </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-property-price.html">Price</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                                 <div style="min-width: 190px">
@@ -130,6 +127,14 @@ new class extends Component {
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-contractor-profile.html">Profile Details</a>
                                         </li>
+
+                                    </ul>
+                                    <div class="h6 pt-4 mb-2">Add (Sell) Car</div>
+                                    <ul class="nav flex-column gap-2 mt-0">
+                                        <li class="pt-1">
+                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
+                                                href="add-car.html">Add (Sell) Car Page</a>
+                                        </li>
                                         <li class="pt-1">
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-contractor-price-hours.html">Price and Hours</a>
@@ -137,13 +142,6 @@ new class extends Component {
                                         <li class="pt-1">
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-contractor-project.html">Create First Project</a>
-                                        </li>
-                                    </ul>
-                                    <div class="h6 pt-4 mb-2">Add (Sell) Car</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-car.html">Add (Sell) Car Page</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -169,13 +167,18 @@ new class extends Component {
         <div class="d-flex gap-3">
 
             @auth
+                <!-- Add property button  -->
+                <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
+                    <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
+                    Sell car
+                </a>
 
                 <!-- Account button -->
                 <div class="dropdown pe-1 me-2">
                     <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                         aria-label="My account">
-                        <img src="assets/img/account/avatar-sm.jpg"
+                        <img src="{{ asset('assets/img/account/avatar.svg') }}"
                             class="hover-effect-target position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
                             alt="Avatar">
                     </a>
@@ -236,12 +239,6 @@ new class extends Component {
                         </li>
                     </ul>
                 </div>
-
-                <!-- Add property button  -->
-                <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
-                    <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
-                    Sell car
-                </a>
             @else
                 <a href="{{ route('login') }}" class="btn btn-outline-secondary">
                     Log in

@@ -13656,7 +13656,7 @@ html:not([dir="rtl"]) .range-slider-ui.noUi-horizontal .noUi-handle {
   font-weight: var(--fn-navbar-brand-font-weight);
 }
 .navbar-nav {
-  --fn-nav-link-font-size: 1rem;
+  --fn-nav-link-font-size: 0.92rem;
   gap: 0;
 }
 .navbar-nav > .nav-item > .nav-link {

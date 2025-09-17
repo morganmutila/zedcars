@@ -165,24 +165,11 @@
                         </form>
                     </div>
                     <div data-bs-theme="dark">
-                        <p class="text-body text-center text-md-start mb-0">Finder is a <span
+                        <p class="text-body text-center text-md-start mb-0">{{ config('app.name') }} is a <span
                                 class="fw-semibold">leading digital marketplace</span> for the automotive industry.
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Background image -->
-        <div
-            class="container position-absolute start-50 bottom-0 translate-middle-x pb-xl-5 ms-xl-n5 ms-xxl-0 me-xxl-0 mb-n5 mb-xl-4 mb-xxl-5">
-            <div class="d-flex justify-content-xl-end position-relative bg-info mb-n5 mb-xxl-4" style="width: 2039px">
-                <img class="position-absolute top-0 rtl-flip" src="assets/img/home/cars/hero/layer01.png"
-                    width="1308" style="right: 0; opacity: .2; mix-blend-mode: overlay" alt="Image">
-                <img src="assets/img/home/cars/hero/layer02.png" width="994" class="rtl-flip me-2"
-                    style="opacity: .7; mix-blend-mode: soft-light" alt="Image">
-                <img class="position-absolute top-0 rtl-flip" src="assets/img/home/cars/hero/layer03.png"
-                    width="1132" style="left: 0; opacity: .06; mix-blend-mode: overlay" alt="Image">
             </div>
         </div>
     </section>
@@ -1242,103 +1229,5 @@
             <div class="swiper-pagination position-static mt-3 mt-lg-4"></div>
         </div>
     </section>
-
-
-    <!-- Accessories from auto market -->
-    <section class="container pt-2 pt-sm-3 pt-md-4 pt-lg-5 pb-5 my-xxl-3">
-        <div class="bg-body-tertiary rounded py-5 px-4 px-md-5">
-            <div class="row align-items-start g-0 py-md-2 py-lg-4 px-lg-4 px-xl-5">
-                <div class="col-md-4 text-center text-md-start pe-md-4 pe-lg-0 pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-0">
-                    <h2 class="pb-1 mb-2">Auto market</h2>
-                    <p class="pb-2 pb-lg-3">Choose the best for your car!</p>
-                    <a class="btn btn-lg btn-primary" href="listings-grid-cars.html">
-                        Go to shop
-                        <i class="fi-chevron-right fs-lg ms-1 me-n1"></i>
-                    </a>
-                </div>
-                <div class="col-md-8">
-
-                    <!-- Row of items that turns into carousel on screens < 1200px wide (xl breakpoint) -->
-                    <div class="swiper"
-                        data-swiper="{
-            &quot;slidesPerView&quot;: 2,
-            &quot;spaceBetween&quot;: 24,
-            &quot;pagination&quot;: {
-                &quot;el&quot;: &quot;.swiper-pagination&quot;,
-                &quot;clickable&quot;: true
-            },
-            &quot;breakpoints&quot;: {
-                &quot;500&quot;: {
-                &quot;slidesPerView&quot;: 3
-                },
-                &quot;1200&quot;: {
-                &quot;slidesPerView&quot;: 4
-                }
-            }
-            }">
-                        <div class="swiper-wrapper">
-
-                            <!-- Item -->
-                            <div class="swiper-slide">
-                                <article class="position-relative text-center">
-                                    <div class="ratio mx-auto mb-3"
-                                        style="max-width: 164px; --fn-aspect-ratio: calc(120 / 164 * 100%)">
-                                        <img src="assets/img/home/cars/accessories/01.png" alt="Image">
-                                    </div>
-                                    <h3 class="h6 fw-medium mb-0">
-                                        <a class="hover-effect-underline stretched-link" href="#!">Tires</a>
-                                    </h3>
-                                </article>
-                            </div>
-
-                            <!-- Item -->
-                            <div class="swiper-slide">
-                                <article class="position-relative text-center">
-                                    <div class="ratio mx-auto mb-3"
-                                        style="max-width: 164px; --fn-aspect-ratio: calc(120 / 164 * 100%)">
-                                        <img src="assets/img/home/cars/accessories/02.png" alt="Image">
-                                    </div>
-                                    <h3 class="h6 fw-medium mb-0">
-                                        <a class="hover-effect-underline stretched-link" href="#!">Disks</a>
-                                    </h3>
-                                </article>
-                            </div>
-
-                            <!-- Item -->
-                            <div class="swiper-slide">
-                                <article class="position-relative text-center">
-                                    <div class="ratio mx-auto mb-3"
-                                        style="max-width: 164px; --fn-aspect-ratio: calc(120 / 164 * 100%)">
-                                        <img src="assets/img/home/cars/accessories/03.png" alt="Image">
-                                    </div>
-                                    <h3 class="h6 fw-medium mb-0">
-                                        <a class="hover-effect-underline stretched-link" href="#!">Tuning</a>
-                                    </h3>
-                                </article>
-                            </div>
-
-                            <!-- Item -->
-                            <div class="swiper-slide">
-                                <article class="position-relative text-center">
-                                    <div class="ratio mx-auto mb-3"
-                                        style="max-width: 164px; --fn-aspect-ratio: calc(120 / 164 * 100%)">
-                                        <img src="assets/img/home/cars/accessories/04.png" alt="Image">
-                                    </div>
-                                    <h3 class="h6 fw-medium mb-0">
-                                        <a class="hover-effect-underline stretched-link" href="#!">Child
-                                            seat</a>
-                                    </h3>
-                                </article>
-                            </div>
-                        </div>
-
-                        <!-- Pagination (Bullets) -->
-                        <div class="swiper-pagination position-static mt-3 mt-lg-4"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
 </x-app-layout>

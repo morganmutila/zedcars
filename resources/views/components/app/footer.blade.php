@@ -3,7 +3,7 @@
 
             <!-- Features -->
             <div class="border-bottom pt-5 pb-3">
-                <div class="row row-cols-2 row-cols-md-4 gy-2">
+                <div class="row row-cols-2 row-cols-md-3 gy-2">
                     <div class="col d-flex justify-content-center justify-content-md-start pb-3">
                         <i class="fi-copy fs-4 text-light-emphasis"></i>
                         <div class="h6 text-body-secondary ps-1 ms-2 mb-0">Over 1 million listings</div>
@@ -11,10 +11,6 @@
                     <div class="col d-flex justify-content-center justify-content-md-start pb-3">
                         <i class="fi-document-search fs-4 text-light-emphasis"></i>
                         <div class="h6 text-body-secondary ps-1 ms-2 mb-0">Personalized search</div>
-                    </div>
-                    <div class="col d-flex justify-content-center justify-content-md-start pb-3">
-                        <i class="fi-money-check fs-4 text-light-emphasis"></i>
-                        <div class="h6 text-body-secondary ps-1 ms-2 mb-0">Online car appraisal</div>
                     </div>
                     <div class="col d-flex justify-content-center justify-content-md-start pb-3">
                         <i class="fi-lightbulb fs-4 text-light-emphasis"></i>
@@ -52,10 +48,6 @@
                                     <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
                                         href="#!">Compare cars</a>
                                 </li>
-                                <li class="pt-1">
-                                    <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
-                                        href="#!">Online car appraisal</a>
-                                </li>
                             </ul>
                         </div>
                         <hr class="d-sm-none my-0">
@@ -74,19 +66,15 @@
                             <ul class="nav flex-column gap-2 pt-sm-1 pt-lg-2 pb-3 pb-sm-0 mt-n1 mb-1 mb-sm-0">
                                 <li class="pt-1">
                                     <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
-                                        href="#!">About Finder</a>
+                                        href="{{ route('about') }}">About {{ config('app.name') }}</a>
                                 </li>
                                 <li class="pt-1">
                                     <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
-                                        href="#!">Contact us</a>
+                                        href="{{ route('contact') }}">Contact us</a>
                                 </li>
                                 <li class="pt-1">
                                     <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
                                         href="#!">FAQs &amp; support</a>
-                                </li>
-                                <li class="pt-1">
-                                    <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
-                                        href="#!">Mobile app</a>
                                 </li>
                                 <li class="pt-1">
                                     <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0"
@@ -133,8 +121,7 @@
                 <!-- Download app CTA -->
                 <div class="col-md-5 col-lg-4 col-xl-3 pt-4 pt-sm-5 pt-md-0 mt-3 mt-sm-0">
                     <h6 class="mb-2">Download our app</h6>
-                    <p class="fs-sm text-body-secondary mb-4">Download Finder App and join the community of car
-                        enthusiasts.</p>
+                    <p class="fs-sm text-body-secondary mb-4">The {{ config('app.name') }} app is coming soon.</p>
                     <div class="d-flex gap-3">
                         <a class="btn btn-market btn-lg w-100" href="#!" aria-label="Download on App Store">
                             <i class="fi-apple lead ms-n1 me-2"></i>
@@ -179,8 +166,8 @@
                     <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
                         data-bs-toggle="tooltip"
                         data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white opacity-75 p-0&quot;></div></div>"
-                        title="Instagram" aria-label="Follow us on Instagram">
-                        <i class="fi-instagram"></i>
+                        title="WhatsApp" aria-label="Follow us on WhatsApp">
+                        <i class="fi-whatsapp"></i>
                     </a>
                     <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
                         data-bs-toggle="tooltip"
@@ -188,14 +175,9 @@
                         title="Facebook" aria-label="Follow us on Facebook">
                         <i class="fi-facebook"></i>
                     </a>
-                    <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
-                        data-bs-toggle="tooltip"
-                        data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white opacity-75 p-0&quot;></div></div>"
-                        title="X (Twitter)" aria-label="Follow us on X (Twitter)">
-                        <i class="fi-x"></i>
-                    </a>
                 </div>
-                <p class="text-body-secondary fs-sm text-center mb-0 order-sm-1">Copyrights © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
+                <p class="text-body-secondary fs-sm text-center mb-0 order-sm-1">Copyrights © {{ date('Y') }}
+                    {{ config('app.name') }}. All rights reserved.</p>
             </div>
         </div>
     </footer>

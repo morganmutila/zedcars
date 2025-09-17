@@ -22,7 +22,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard
     Route::view('dashboard', 'dashboard')->name('dashboard');
     // Profile
-    Route::view('profile', 'profile')->name('profile');
+    Route::view('account', 'profile')->name('profile');
 });
 
 
