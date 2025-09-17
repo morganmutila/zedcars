@@ -3,7 +3,10 @@
 use Livewire\Volt\Component;
 
 new class extends Component {
-    //
+    public function search(): void
+    {
+        dd('Search is coming');
+    }
 }; ?>
 
 <section class="position-relative bg-info overflow-hidden py-5">
@@ -19,7 +22,7 @@ new class extends Component {
             <!-- Search form -->
             <div class="col-lg-7 order-lg-1">
                 <div class="bg-white rounded p-4 mb-4 me-lg-4 me-xxl-0" style="max-width: 816px; --fn-bg-opacity: .08">
-                    <form class="p-sm-2" data-bs-theme="light">
+                    <form class="p-sm-2" data-bs-theme="light" wire:submit.prevent="search">
                         <div class="d-flex justify-content-center justify-content-md-start gap-2 gap-sm-3 mb-4"
                             data-bs-theme="dark">
                             <input type="radio" class="btn-check" name="car-search" id="all-cars" checked="">
@@ -154,10 +157,11 @@ new class extends Component {
                         </div>
                         <div
                             class="d-flex flex-column gap-2 flex-lg-row justify-content-center justify-content-md-start pt-4">
-                            <button type="submit" class="btn btn-primary">
+
+                            <x-primary-button type="submit">
                                 <i class="fi-search fs-base me-2 ms-n1"></i>
-                                Search
-                            </button>
+                                {{ __(' Search') }}
+                            </x-primary-button>
                             <a class="btn btn-white-outline btn-outline-light position-relative" href="#!">
                                 <span class="stretched-link">Advanced search</span>
                                 <i class="fi-chevron-right fs-base ms-1 me-n1"></i>

@@ -21,7 +21,29 @@
 
             <!-- Column with links that are turned into accordion on screens < 500px wide (sm breakpoint) + Download app CTA -->
             <div class="accordion row pb-4 py-sm-5" id="footerLinks">
-                <div class="col-sm-4 col-md-3">
+                <div class="col-sm-3 col-md-4 col-lg-3">
+                    <x-application-logo
+                        class="d-inline-flex align-items-center text-dark-emphasis text-decoration-none mb-4" />
+
+                    <ul class="list-unstyled gap-3">
+                        <li>
+                            <div class="position-relative d-flex align-items-center">
+                                <i class="fi-mail fs-lg text-body me-2"></i>
+                                <a class="text-dark-emphasis text-decoration-none hover-effect-underline stretched-link"
+                                    href="mailto:contact@example.com">mutilamorgan@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="position-relative d-flex align-items-center">
+                                <i class="fi-phone-call fs-lg text-body me-2"></i>
+                                <a class="text-dark-emphasis text-decoration-none hover-effect-underline stretched-link"
+                                    href="tel:+26096249140">+260976249140</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3 col-md-3">
                     <div class="accordion-item border-0">
                         <h6 class="accordion-header" id="buySellHeading">
                             <span class="d-none d-sm-block pb-1 mb-2">Buying &amp; selling</span>
@@ -53,7 +75,8 @@
                         <hr class="d-sm-none my-0">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-2 col-lg-3">
+
+                <div class="col-sm-3 col-md-2 col-lg-3">
                     <div class="accordion-item border-0">
                         <h6 class="accordion-header" id="aboutLinksHeading">
                             <span class="d-none d-sm-block pb-1 mb-2">About</span>
@@ -85,7 +108,8 @@
                         <hr class="d-sm-none my-0">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-2 col-xl-3">
+
+                <div class="col-sm-3 col-md-2 col-xl-3">
                     <div class="accordion-item border-0">
                         <h6 class="accordion-header" id="profileLinksHeading">
                             <span class="d-none d-sm-block pb-1 mb-2">Profile</span>
@@ -119,7 +143,7 @@
                 </div>
 
                 <!-- Download app CTA -->
-                <div class="col-md-5 col-lg-4 col-xl-3 pt-4 pt-sm-5 pt-md-0 mt-3 mt-sm-0">
+                <div class="col-md-3 col-lg-4 col-xl-3 pt-4 pt-sm-5 pt-md-0 mt-3 mt-sm-0">
                     <h6 class="mb-2">Download our app</h6>
                     <p class="fs-sm text-body-secondary mb-4">The {{ config('app.name') }} app is coming soon.</p>
                     <div class="d-flex gap-3">

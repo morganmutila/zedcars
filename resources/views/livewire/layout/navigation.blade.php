@@ -217,12 +217,6 @@ new class extends Component {
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="account-payment.html">
-                                <i class="fi-credit-card opacity-75 me-2"></i>
-                                Payment details
-                            </a>
-                        </li>
-                        <li>
                             <a class="dropdown-item" href="account-settings.html">
                                 <i class="fi-settings opacity-75 me-2"></i>
                                 Account settings
