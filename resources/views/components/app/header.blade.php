@@ -8,12 +8,12 @@
         </button>
 
         <!-- Navbar brand (Logo) -->
-        <x-application-logo class="navbar-brand py-1 py-md-2 py-xl-1 me-2 me-sm-n4 me-md-n5 me-lg-0" />
+        <x-application-logo class="navbar-brand py-1 py-md-2 py-xl-1 me-auto me-sm-n4 me-md-n5 me-lg-0" />
 
         <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
         <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
             <div class="offcanvas-header py-3">
-                <h5 class="offcanvas-title" id="navbarNavLabel">Browse Finder</h5>
+                <h5 class="offcanvas-title" id="navbarNavLabel">Browse {{ config('app.name') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body pt-2 pb-4 py-lg-0 mx-lg-auto">
@@ -60,32 +60,6 @@
                                                 href="single-entry-cars.html">Car Details Page</a>
                                         </li>
                                     </ul>
-                                    <div class="h6 pt-4 mb-2">Contractors</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-contractors.html">Listings with Side Filters</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="single-entry-contractors.html">Contractor Details Page</a>
-                                        </li>
-                                    </ul>
-                                    <div class="h6 pt-4 mb-2">Doctors</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-list-doctors.html">Listings List View</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-grid-doctors.html">Listings Grid View</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="single-entry-doctors.html">Doctor Details Page</a>
-                                        </li>
-                                    </ul>
                                 </div>
                                 <div style="min-width: 190px">
                                     <div class="h6 mb-2">Events</div>
@@ -97,23 +71,6 @@
                                         <li class="pt-1">
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="single-entry-events.html">Event Details Page</a>
-                                        </li>
-                                    </ul>
-                                    <div class="h6 pt-4 mb-2">City Guide</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-side-filters-city-guide.html">Listings with Side
-                                                Filters</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-top-filters-city-guide.html">Listings with Top
-                                                Filters</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="single-entry-city-guide.html">Place Details Page</a>
                                         </li>
                                     </ul>
                                     <div class="h6 pt-4 mb-2">Add Property</div>
@@ -134,18 +91,7 @@
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-property-details.html">Property Details</a>
                                         </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-property-price.html">Price</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-property-contact-info.html">Contact Info</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-property-promotion.html">Ad Promotion</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                                 <div style="min-width: 190px">
@@ -163,6 +109,14 @@
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-contractor-profile.html">Profile Details</a>
                                         </li>
+
+                                    </ul>
+                                    <div class="h6 pt-4 mb-2">Add (Sell) Car</div>
+                                    <ul class="nav flex-column gap-2 mt-0">
+                                        <li class="pt-1">
+                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
+                                                href="add-car.html">Add (Sell) Car Page</a>
+                                        </li>
                                         <li class="pt-1">
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-contractor-price-hours.html">Price and Hours</a>
@@ -172,13 +126,6 @@
                                                 href="add-contractor-project.html">Create First Project</a>
                                         </li>
                                     </ul>
-                                    <div class="h6 pt-4 mb-2">Add (Sell) Car</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-car.html">Add (Sell) Car Page</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -186,36 +133,54 @@
 
                     <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
                         <x-nav-link href="{{ route('contact') }}" role="button" :active="request()->routeIs('contact')">
-                            Contact Us
+                            Contact
                         </x-nav-link>
                     </li>
                     <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
                         <x-nav-link href="{{ route('about') }}" role="button" :active="request()->routeIs('about')">
-                            About Us
+                            About
                         </x-nav-link>
                     </li>
                 </ul>
             </div>
         </nav>
-
         <!-- Button group -->
-        <div class="d-flex gap-sm-1 gap-3">
+        <div class="d-flex gap-3">
 
-            @auth
+             @auth
+                <!-- Add property button  -->
+                <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
+                    <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
+                    Sell car
+                </a>
 
                 <!-- Account button -->
                 <div class="dropdown pe-1 me-2">
                     <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                         aria-label="My account">
-                        <img src="assets/img/account/avatar-sm.jpg"
+                        <img src="{{ asset('assets/img/account/avatar.svg') }}"
                             class="hover-effect-target position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
                             alt="Avatar">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" style="--fn-dropdown-spacer: .5rem">
-                        <li><span class="h6 dropdown-header">Michael Williams</span></li>
+                        <li><span class="h6 dropdown-header pb-0" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
+                                x-on:profile-updated.window="name = $event.detail.name"></span>
+                        </li>
+                        <li><small class="text-muted pt-0 dropdown-header" x-data="{{ json_encode(['email' => auth()->user()->email]) }}" x-text="email"
+                                x-on:profile-updated.window="email = $event.detail.email"></small>
+                        </li>
                         <li>
-                            <a class="dropdown-item" href="account-profile.html">
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('dashboard') }}" wire:navigate>
+                                <i class="fi-home opacity-75 me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
                                 <i class="fi-user opacity-75 me-2"></i>
                                 My profile
                             </a>
@@ -239,13 +204,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="account-payment.html">
-                                <i class="fi-credit-card opacity-75 me-2"></i>
-                                Payment details
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="account-settings.html">
+                            <a class="dropdown-item" href="{{ route('profile.settings') }}" wire:navigate>
                                 <i class="fi-settings opacity-75 me-2"></i>
                                 Account settings
                             </a>
@@ -254,25 +213,19 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="account-signin.html">
+                            <button wire:click="logout" class="dropdown-item">
                                 <i class="fi-log-out opacity-75 me-2"></i>
                                 Sign out
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Add property button  -->
-                <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
-                    <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
-                    Sell car
-                </a>
             @else
-                <a href="{{ route('login') }}" class="btn btn-outline-secondary">
+                <a href="{{ route('login') }}" class="btn btn-outline-secondary" wire:navigate>
                     Log in
                 </a>
 
-                <a href="{{ route('register') }}" class="btn btn-primary">
+                <a href="{{ route('register') }}" class="btn btn-primary" wire:navigate>
                     Sign up
                 </a>
             @endauth

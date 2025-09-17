@@ -6,12 +6,12 @@ new class extends Component {
     //
 }; ?>
 
-<aside class="col-lg-3 d-flex flex-column" style="margin-top: -105px; border-right: 1px solid #eee;">
+<aside class="col-lg-3" style="margin-top: -105px">
     <div class="offcanvas-lg offcanvas-start sticky-lg-top pe-lg-3 pe-xl-4" id="accountSidebar">
         <div class="d-none d-lg-block" style="height: 105px"></div>
 
         <!-- Header -->
-        <div class="offcanvas-header d-lg-flex py-3 p-lg-0">
+        <div class="offcanvas-header d-lg-block py-3 p-lg-0">
             <div class="d-flex flex-row flex-lg-column align-items-center align-items-lg-start">
                 <div class="flex-shrink-0 bg-body-secondary border rounded-circle overflow-hidden"
                     style="width: 64px; height: 64px">
@@ -63,9 +63,5 @@ new class extends Component {
             </nav>
         </div>
     </div>
-    <footer class="mt-auto d-none d-md-flex">
-        <p class="fs-xs text-start mb-0">
-            Copyrights © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
-        </p>
-    </footer>
+
 </aside>

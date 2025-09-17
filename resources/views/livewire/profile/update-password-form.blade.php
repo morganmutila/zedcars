@@ -35,6 +35,20 @@ new class extends Component {
 
         $this->dispatch('password-updated');
     }
+    public function sendVerification(): void
+    {
+        $user = Auth::user();
+
+        if ($user->hasVerifiedEmail()) {
+            $this->redirectIntended(default: route('dashboard', absolute: false));
+
+            return;
+        }
+
+        $user->sendEmailVerificationNotification();
+
+        Session::flash('status', 'verification-link-sent');
+    }
 }; ?>
 
 <section>

@@ -40,7 +40,7 @@
 <body>
 
     <!-- Navigation bar (Page header) -->
-    <livewire:layout.navigation />
+    <x-app.header />
 
 
     <!-- Page content -->

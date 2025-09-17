@@ -27,11 +27,6 @@ new class extends Component {
     <p class="fs-sm mb-sm-4">When you delete your account, your public profile will be deactivated
         immediately. If you change your mind before the 14 days are up, sign in with your email and
         password, and we'll send a link to reactivate account.</p>
-    <div class="form-check mb-4">
-        <x-text-input wire:model="agree" type="checkbox" id="confirm-deletion">
-            Yes, I want to delete my account
-        </x-text-input>
-    </div>
 
     <x-danger-button type="button" data-bs-toggle="modal" data-bs-target="#confirm-user-deletion">Delete account
     </x-danger-button>

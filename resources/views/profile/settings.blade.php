@@ -39,30 +39,69 @@
             <div class="vstack gap-4">
 
                 <!-- Profile completeness info card -->
+                @if (auth()->user()->email_verified_at)
+                    <div class="card bg-warning-subtle border-0 mb-2">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="circular-progress text-warning flex-shrink-0 ms-n2 ms-sm-0" role="progressbar"
+                                style="--fn-progress: 65" aria-label="Warning progress" aria-valuenow="65"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <svg class="progress-circle">
+                                    <circle class="progress-background d-none-dark" r="0" style="stroke: #fff"></circle>
+                                    <circle class="progress-background d-none d-block-dark" r="0"
+                                        style="stroke: rgba(255,255,255, .1)"></circle>
+                                    <circle class="progress-bar" r="0"></circle>
+                                </svg>
+                                <h5 class="position-absolute top-50 start-50 translate-middle text-center mb-0">65%</h5>
+                            </div>
+                            <div class="ps-3 ps-sm-4">
+                                <h3 class="h6 pb-1 mb-2">Complete your profile</h3>
+                                <ul class="list-unstyled flex-row flex-wrap fs-sm mb-0">
+                                    <li class="d-flex me-3">
+                                        <i class="fi-plus fs-base me-2" style="margin-top: .1875rem"></i>
+                                        Verify your email
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                @php
+                    $progress = auth()->user()->profileProgress();
+                @endphp
+
                 <div class="card bg-warning-subtle border-0 mb-2">
                     <div class="card-body d-flex align-items-center">
-                        <div class="circular-progress text-warning flex-shrink-0 ms-n2 ms-sm-0" role="progressbar"
-                            style="--fn-progress: 65" aria-label="Warning progress" aria-valuenow="65" aria-valuemin="0"
-                            aria-valuemax="100">
+                        <div class="circular-progress text-warning flex-shrink-0" role="progressbar"
+                            style="--fn-progress: {{ $progress['percentage'] }}" aria-label="Warning progress"
+                            aria-valuenow="{{ $progress['percentage'] }}" aria-valuemin="0" aria-valuemax="100">
+
                             <svg class="progress-circle">
                                 <circle class="progress-background d-none-dark" r="0" style="stroke: #fff"></circle>
                                 <circle class="progress-background d-none d-block-dark" r="0"
                                     style="stroke: rgba(255,255,255, .1)"></circle>
                                 <circle class="progress-bar" r="0"></circle>
                             </svg>
-                            <h5 class="position-absolute top-50 start-50 translate-middle text-center mb-0">65%</h5>
+
+                            <h5 class="position-absolute top-50 start-50 translate-middle text-center mb-0">
+                                {{ $progress['percentage'] }}%
+                            </h5>
                         </div>
+
                         <div class="ps-3 ps-sm-4">
                             <h3 class="h6 pb-1 mb-2">Complete your profile</h3>
                             <ul class="list-unstyled flex-row flex-wrap fs-sm mb-0">
-                                <li class="d-flex me-3">
-                                    <i class="fi-plus fs-base me-2" style="margin-top: .1875rem"></i>
-                                    Verify your email
-                                </li>
+                                @foreach ($progress['missing'] as $task)
+                                    <li class="d-flex me-3">
+                                        <i class="fi-plus fs-base me-2" style="margin-top: .1875rem"></i>
+                                        {{ $task }}
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Profile picture (Avatar) -->
                 <div class="d-flex align-items-start align-items-sm-center mb-2">

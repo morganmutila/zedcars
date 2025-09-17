@@ -14,8 +14,8 @@ new class extends Component {
         $this->redirect('/', navigate: true);
     }
 }; ?>
-<header
-    class="navbar navbar-expand-lg {{ auth()->check() ? 'navbar-dark bg-dark' : '' }} navbar-sticky sticky-top z-fixed px-0"
+
+<header class="navbar navbar-expand-lg navbar-dark bg-dark navbar-sticky sticky-top z-fixed px-0 shadow-md"
     data-sticky-element="">
     <div class="container">
 
@@ -164,90 +164,81 @@ new class extends Component {
         </nav>
 
         <!-- Button group -->
-        <div class="d-flex gap-3">
+        <div class="d-flex gap-4">
 
-            @auth
-                <!-- Add property button  -->
-                <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
-                    <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
-                    Sell car
-                </a>
+            <!-- Add property button  -->
+            <a class="btn btn-primary animate-scale" href="{{ route('dashboard') }}">
+                <i class="fi-plus fs-lg animate-target ms-n2 me-1 me-sm-2"></i>
+                Sell car
+            </a>
 
-                <!-- Account button -->
-                <div class="dropdown pe-1 me-2">
-                    <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
-                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                        aria-label="My account">
-                        <img src="{{ asset('assets/img/account/avatar.svg') }}"
-                            class="hover-effect-target position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
-                            alt="Avatar">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" style="--fn-dropdown-spacer: .5rem">
-                        <li><span class="h6 dropdown-header pb-0" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
-                                x-on:profile-updated.window="name = $event.detail.name"></span>
-                        </li>
-                        <li><small class="text-muted pt-0 dropdown-header" x-data="{{ json_encode(['email' => auth()->user()->email]) }}" x-text="email"
-                                x-on:profile-updated.window="email = $event.detail.email"></small>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('dashboard') }}" wire:navigate>
-                                <i class="fi-home opacity-75 me-2"></i>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
-                                <i class="fi-user opacity-75 me-2"></i>
-                                My profile
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="account-listings.html">
-                                <i class="fi-layers opacity-75 me-2"></i>
-                                My listings
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="account-reviews.html">
-                                <i class="fi-star opacity-75 me-2"></i>
-                                Reviews
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="account-favorites.html">
-                                <i class="fi-heart opacity-75 me-2"></i>
-                                Favorites
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('profile.settings') }}" wire:navigate>
-                                <i class="fi-settings opacity-75 me-2"></i>
-                                Account settings
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <button wire:click="logout" class="dropdown-item">
-                                <i class="fi-log-out opacity-75 me-2"></i>
-                                Sign out
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            @else
-                <a href="{{ route('login') }}" class="btn btn-outline-secondary">
-                    Log in
+            <!-- Account button -->
+            <div class="dropdown pe-1 me-2" wire:ignore>
+                <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
+                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    aria-label="My account">
+                    <img src="{{ asset('assets/img/account/avatar.svg') }}"
+                        class="hover-effect-target position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                        alt="Avatar">
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" style="--fn-dropdown-spacer: .5rem">
+                    <li><span class="h6 dropdown-header pb-0" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
+                            x-on:profile-updated.window="name = $event.detail.name"></span>
+                    </li>
+                    <li><small class="text-muted pt-0 dropdown-header" x-data="{{ json_encode(['email' => auth()->user()->email]) }}" x-text="email"
+                            x-on:profile-updated.window="email = $event.detail.email"></small>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('dashboard') }}" wire:navigate>
+                            <i class="fi-home opacity-75 me-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
+                            <i class="fi-user opacity-75 me-2"></i>
+                            My profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="account-listings.html">
+                            <i class="fi-layers opacity-75 me-2"></i>
+                            My listings
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="account-reviews.html">
+                            <i class="fi-star opacity-75 me-2"></i>
+                            Reviews
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="account-favorites.html">
+                            <i class="fi-heart opacity-75 me-2"></i>
+                            Favorites
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('profile.settings') }}" wire:navigate>
+                            <i class="fi-settings opacity-75 me-2"></i>
+                            Account settings
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <button wire:click="logout" class="dropdown-item">
+                            <i class="fi-log-out opacity-75 me-2"></i>
+                            Sign out
+                        </button>
+                    </li>
+                </ul>
+            </div>
 
-                <a href="{{ route('register') }}" class="btn btn-primary">
-                    Sign up
-                </a>
-            @endauth
         </div>
     </div>
 </header>

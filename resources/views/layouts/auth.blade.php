@@ -59,7 +59,6 @@
     <!-- Vendor scripts -->
     <script src="{{ asset('assets/vendor/choices.js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/cleave.js/cleave.min.js') }}"></script>
-
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
 
 </body>

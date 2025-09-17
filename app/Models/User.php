@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -45,4 +45,36 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    // Check which fields have been filled out and return a percentage
+    public function profileProgress(): array
+    {
+        $fields = [
+            'name'  => 'Add your name',
+            'email' => 'Add your email',
+            // 'phone' => 'Add your phone number',
+            // 'address' => 'Add your address',
+            // 'dob' => 'Add your date of birth',
+            'email_verified_at' => 'Verify your email',
+        ];
+
+        $filled = 0;
+        $missing = [];
+
+        foreach ($fields as $field => $label) {
+            if (!empty($this->{$field})) {
+                $filled++;
+            } else {
+                $missing[] = $label;
+            }
+        }
+
+        $percentage = round(($filled / count($fields)) * 100);
+
+        return [
+            'percentage' => $percentage,
+            'missing' => $missing
+        ];
+    }
+
 }
