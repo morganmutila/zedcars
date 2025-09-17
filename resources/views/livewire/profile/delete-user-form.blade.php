@@ -22,23 +22,20 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot:title>
-    Delete account
-</x-slot:title>
+<div>
+    <h3 class="h4 pt-5 mt-n2 mt-md-0 mt-lg-2 mt-xl-3 mb-sm-4">Delete account</h3>
+    <p class="fs-sm mb-sm-4">When you delete your account, your public profile will be deactivated
+        immediately. If you change your mind before the 14 days are up, sign in with your email and
+        password, and we'll send a link to reactivate account.</p>
+    <div class="form-check mb-4">
+        <x-text-input wire:model="agree" type="checkbox" id="confirm-deletion">
+            Yes, I want to delete my account
+        </x-text-input>
+    </div>
 
-<section class="space-y-6">
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Delete Account') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
-        </p>
-    </header>
-
-    <x-danger-button data-bs-toggle="modal" data-bs-target="#confirm-user-deletion">{{ __('Delete Account') }}
+    <x-danger-button type="button" data-bs-toggle="modal" data-bs-target="#confirm-user-deletion">Delete account
     </x-danger-button>
+
 
     <x-modal name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable>
         <form wire:submit="deleteUser" class="p-6">
@@ -69,4 +66,4 @@ new class extends Component {
             </div>
         </form>
     </x-modal>
-</section>
+</div>

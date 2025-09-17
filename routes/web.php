@@ -22,7 +22,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard
     Route::view('dashboard', 'dashboard')->name('dashboard');
     // Profile
-    Route::view('account', 'profile')->name('profile');
+    Route::view('account/listings', 'profile.listings')->name('profile.listings');
+    Route::view('account/reviews', 'profile.reviews')->name('profile.reviews');
+    Route::view('account/favorites', 'profile.favorites')->name('profile.favorites');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::view('account', 'profile.profile')->name('profile');
+    Route::view('account/settings', 'profile.settings')->name('profile.settings');
+
 });
 
 

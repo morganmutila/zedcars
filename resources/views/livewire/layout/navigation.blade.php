@@ -193,6 +193,12 @@ new class extends Component {
                             <hr class="dropdown-divider">
                         </li>
                         <li>
+                            <a class="dropdown-item" href="{{ route('dashboard') }}" wire:navigate>
+                                <i class="fi-home opacity-75 me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
                                 <i class="fi-user opacity-75 me-2"></i>
                                 My profile
@@ -217,7 +223,7 @@ new class extends Component {
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="account-settings.html">
+                            <a class="dropdown-item" href="{{ route('profile.settings') }}" wire:navigate>
                                 <i class="fi-settings opacity-75 me-2"></i>
                                 Account settings
                             </a>
