@@ -5,16 +5,18 @@
     <!-- Hero with search form -->
     <section class="position-relative bg-info overflow-hidden py-5">
         <div class="container position-relative z-2 pb-2 py-sm-3 py-md-4 py-lg-5 my-lg-3 my-xl-4 my-xxl-5">
-            <div class="row flex-column align-items-center pt-lg-2 pb-lg-3 pb-xl-4 pb-xxl-5">
+            <div class="row align-items-center pt-lg-2 pb-lg-3 pb-xl-4 pb-xxl-5">
 
                 <!-- Heading -->
-                <div class="col-12 text-lg-start pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-5 mb-lg-0">
-                    <h1 class="text-center display-4 text-white">Easy way to find the right car</h1>
+                <div class="col-lg-5 order-lg-2 text-center text-lg-start pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-5 mb-lg-0">
+                    <h1 class="display-4 text-white">Easy way to find the right car</h1>
                 </div>
 
+
                 <!-- Search form -->
-                <div class="col-12">
-                    <div class="bg-white rounded p-4 mb-4 mx-auto" style="--fn-bg-opacity: .08">
+                <div class="col-lg-7 order-lg-1">
+                    <div class="bg-white rounded p-4 mb-4 me-lg-4 me-xxl-0"
+                        style="max-width: 816px; --fn-bg-opacity: .08">
                         <form class="p-sm-2" data-bs-theme="light">
                             <div class="d-flex justify-content-center justify-content-md-start gap-2 gap-sm-3 mb-4"
                                 data-bs-theme="dark">
@@ -28,7 +30,6 @@
                                 <label for="used-cars" class="btn btn-outline-secondary rounded-pill"
                                     style="--fn-btn-border-color: rgba(255,255,255, .15)">Used cars</label>
                             </div>
-
                             <div class="row row-cols-1 row-cols-md-2 g-3">
                                 <div class="col d-flex flex-column gap-3">
                                     <select class="form-select" data-select="{&quot;searchEnabled&quot;: true}"
@@ -88,10 +89,11 @@
                                     <div class="input-group">
                                         <div class="w-50">
                                             <select class="form-select rounded-end-0"
-                                                data-select="{ &quot;classNames&quot;: {
-                                                        &quot;containerInner&quot;: [&quot;form-select&quot;, &quot;rounded-end-0&quot;]
-                                                    }
-                                                }"
+                                                data-select="{
+                        &quot;classNames&quot;: {
+                            &quot;containerInner&quot;: [&quot;form-select&quot;, &quot;rounded-end-0&quot;]
+                        }
+                        }"
                                                 aria-label="Car year from select" data-bs-theme="light">
                                                 <option value="">Year from</option>
                                                 <option value="2025">2025</option>
@@ -153,6 +155,12 @@
                                     <i class="fi-search fs-base me-2 ms-n1"></i>
                                     Search
                                 </button>
+                                <div class="nav" data-bs-theme="dark">
+                                    <a class="nav-link position-relative pe-0" href="#!">
+                                        <span class="hover-effect-underline stretched-link">Advanced search</span>
+                                        <i class="fi-chevron-right fs-base ms-1 me-n1"></i>
+                                    </a>
+                                </div>
                             </div>
                         </form>
                     </div>

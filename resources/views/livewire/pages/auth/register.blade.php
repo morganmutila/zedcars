@@ -49,28 +49,28 @@ new #[Layout('layouts.guest')] class extends Component {
     <form class="{{ $errors->any() ? 'is-invalid' : '' }}" wire:submit.prevent="register">
         <!-- Name -->
         <div class="mb-3">
-            <x-text-input wire:model="name" label="Name" type="text" autocomplete="name" :placeholder="__('Full Name')"
-                :messages="$errors->get('name')" />
+            <x-text-input wire:model="name" label="Name" id="name" type="text" autocomplete="name"
+                :placeholder="__('Full Name')" :messages="$errors->get('name')" />
         </div>
 
         <!-- Email Address -->
         <div class="mb-3">
-            <x-text-input wire:model="email" label="Email" type="email" autocomplete="username" :placeholder="__('Minimum 8 characters')"
-                :messages="$errors->get('email')" />
+            <x-text-input wire:model="email" label="Email" id="email" type="email" autocomplete="username"
+                :placeholder="__('Minimum 8 characters')" :messages="$errors->get('email')" />
         </div>
 
         <!-- Password -->
         <div class="mb-3">
-            <x-text-input wire:model="password" label="Password" type="password" autocomplete="current-password"
-                :placeholder="__('New Password')" :messages="$errors->get('password')" />
+            <x-text-input wire:model="password" label="Password" id="password" type="password"
+                autocomplete="current-password" :placeholder="__('New Password')" :messages="$errors->get('password')" />
         </div>
 
 
         <!-- Confirm Password -->
         <!-- Password -->
         <div class="mb-3">
-            <x-text-input wire:model="password_confirmation" type="password" autocomplete="current-password"
-                label="Confirm Password" :placeholder="__('Confirm New Password')" />
+            <x-text-input wire:model="password_confirmation" label="confirm_password" id="confirm_password"
+                type="password" autocomplete="current-password" label="Confirm Password" :placeholder="__('Confirm New Password')" />
         </div>
 
 

@@ -14,7 +14,9 @@ new class extends Component {
         $this->redirect('/', navigate: true);
     }
 }; ?>
-<header class="navbar navbar-expand-lg bg-body navbar-sticky sticky-top z-fixed px-0" data-sticky-element="">
+<header
+    class="navbar navbar-expand-lg {{ auth()->check() ? 'navbar-dark bg-dark' : '' }} navbar-sticky sticky-top z-fixed px-0"
+    data-sticky-element="">
     <div class="container">
 
         <!-- Mobile offcanvas menu toggler (Hamburger) -->
@@ -76,32 +78,6 @@ new class extends Component {
                                                 href="single-entry-cars.html">Car Details Page</a>
                                         </li>
                                     </ul>
-                                    <div class="h6 pt-4 mb-2">Contractors</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-contractors.html">Listings with Side Filters</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="single-entry-contractors.html">Contractor Details Page</a>
-                                        </li>
-                                    </ul>
-                                    <div class="h6 pt-4 mb-2">Doctors</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-list-doctors.html">Listings List View</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-grid-doctors.html">Listings Grid View</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="single-entry-doctors.html">Doctor Details Page</a>
-                                        </li>
-                                    </ul>
                                 </div>
                                 <div style="min-width: 190px">
                                     <div class="h6 mb-2">Events</div>
@@ -113,23 +89,6 @@ new class extends Component {
                                         <li class="pt-1">
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="single-entry-events.html">Event Details Page</a>
-                                        </li>
-                                    </ul>
-                                    <div class="h6 pt-4 mb-2">City Guide</div>
-                                    <ul class="nav flex-column gap-2 mt-0">
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-side-filters-city-guide.html">Listings with Side
-                                                Filters</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="listings-top-filters-city-guide.html">Listings with Top
-                                                Filters</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="single-entry-city-guide.html">Place Details Page</a>
                                         </li>
                                     </ul>
                                     <div class="h6 pt-4 mb-2">Add Property</div>
@@ -153,14 +112,6 @@ new class extends Component {
                                         <li class="pt-1">
                                             <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
                                                 href="add-property-price.html">Price</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-property-contact-info.html">Contact Info</a>
-                                        </li>
-                                        <li class="pt-1">
-                                            <a class="nav-link hover-effect-underline d-inline fw-normal p-0"
-                                                href="add-property-promotion.html">Ad Promotion</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -202,12 +153,12 @@ new class extends Component {
 
                     <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
                         <x-nav-link href="{{ route('contact') }}" role="button" :active="request()->routeIs('contact')">
-                            Contact Us
+                            Contact
                         </x-nav-link>
                     </li>
                     <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
                         <x-nav-link href="{{ route('about') }}" role="button" :active="request()->routeIs('about')">
-                            About Us
+                            About
                         </x-nav-link>
                     </li>
                 </ul>
