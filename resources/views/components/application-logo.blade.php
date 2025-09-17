@@ -1,5 +1,5 @@
 <a {{ $attributes->merge(['class' => 'navbar-brand pt-0']) }} href="{{ route('home') }}">
-    <span class="d-flex flex-shrink-0 text-primary rtl-flip me-2">
+    <span class="d-none d-sm-flex flex-shrink-0 text-primary rtl-flip me-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="34">
             <path
                 d="M34.5 16.894v10.731c0 3.506-2.869 6.375-6.375 6.375H17.5h-.85C7.725 33.575.5 26.138.5 17c0-9.35 7.65-17 17-17s17 7.544 17 16.894z"
@@ -25,5 +25,5 @@
                 fill="currentColor"></path>
         </svg>
     </span>
-    Finder
+    {{ config('app.name') }}
 </a>

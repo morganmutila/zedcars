@@ -26,12 +26,12 @@ new class extends Component {
         </button>
 
         <!-- Navbar brand (Logo) -->
-        <x-application-logo class="navbar-brand py-1 py-md-2 py-xl-1 me-2 me-sm-n4 me-md-n5 me-lg-0" />
+        <x-application-logo class="navbar-brand py-1 py-md-2 py-xl-1 me-auto me-sm-n4 me-md-n5 me-lg-0" />
 
         <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
         <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
             <div class="offcanvas-header py-3">
-                <h5 class="offcanvas-title" id="navbarNavLabel">Browse Finder</h5>
+                <h5 class="offcanvas-title" id="navbarNavLabel">Browse {{ config('app.name') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body pt-2 pb-4 py-lg-0 mx-lg-auto">
