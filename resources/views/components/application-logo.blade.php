@@ -1,4 +1,6 @@
-<a {{ $attributes->merge(['class' => 'navbar-brand pt-0']) }} href="{{ route('home') }}">
+@props(['showLogoText' => true])
+
+<a {{ $attributes->merge(['class' => 'navbar-brand pt-0']) }} href="{{ route('home') }}" wire:navigate>
     <span class="d-none d-sm-flex flex-shrink-0 text-primary rtl-flip me-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="34">
             <path
@@ -25,5 +27,7 @@
                 fill="currentColor"></path>
         </svg>
     </span>
-    {{ config('app.name') }}
+    @if($showLogoText === true)
+        {{ config('app.name') }}
+    @endif
 </a>

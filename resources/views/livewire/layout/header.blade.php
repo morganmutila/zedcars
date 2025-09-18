@@ -1,3 +1,20 @@
+<?php
+
+use App\Livewire\Actions\Logout;
+use Livewire\Volt\Component;
+
+new class extends Component {
+    /**
+     * Log the current user out of the application.
+     */
+    public function logout(Logout $logout): void
+    {
+        $logout();
+
+        $this->redirect('/', navigate: true);
+    }
+}; ?>
+
 <header class="navbar navbar-expand-lg bg-body navbar-sticky sticky-top z-fixed px-0" data-sticky-element="">
     <div class="container">
 
@@ -155,7 +172,7 @@
                 </a>
 
                 <!-- Account button -->
-                <div class="dropdown pe-1 me-2">
+                <div class="dropdown pe-1 me-2" wire:ignore>
                     <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                         aria-label="My account">
@@ -221,13 +238,15 @@
                     </ul>
                 </div>
             @else
-                <a href="{{ route('login') }}" class="btn btn-outline-secondary" wire:navigate>
-                    Log in
-                </a>
+                
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                     Log in
+                </button>
 
-                <a href="{{ route('register') }}" class="btn btn-primary" wire:navigate>
-                    Sign up
-                </a>
+                
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registerModal">
+                     Sign up
+                </button>
             @endauth
         </div>
     </div>

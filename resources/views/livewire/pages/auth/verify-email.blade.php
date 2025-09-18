@@ -45,7 +45,7 @@ new #[Layout('layouts.guest')] class extends Component {
     </p>
 
     @if (session('status') == 'verification-link-sent')
-        <div {{ $attributes->merge(['class' => 'alert d-flex alert-success']) }} role="alert">
+        <div class="alert d-flex alert-success" role="alert">
             <i class="fi-check-circle fs-lg pe-1 mt-1 me-2"></i>
             <div>
                 {{ __('A new verification link has been sent to the email address you provided during registration.') }}

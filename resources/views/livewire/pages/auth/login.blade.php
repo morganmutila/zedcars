@@ -32,8 +32,7 @@ new #[Layout('layouts.guest')] class extends Component {
     <h1 class="h2 mt-auto">Welcome back</h1>
     <div class="nav fs-sm mb-4">
         Don't have an account?
-        <a class="nav-link text-decoration-underline p-0 ms-2" wire:navigate href="{{ route('register') }}">Create an
-            account</a>
+        <a class="nav-link text-decoration-underline p-0 ms-2" wire:navigate href="{{ route('register') }}">Sign up</a>
     </div>
 
     <!-- Form -->
@@ -64,7 +63,11 @@ new #[Layout('layouts.guest')] class extends Component {
             </div>
         </div>
 
-        <x-primary-button class="btn-lg w-100" type="submit">
+        <x-primary-button 
+            class="btn-lg w-100" 
+            type="submit"
+            wire:loading.target="login"
+            >
             {{ __('Sign In') }}
         </x-primary-button>
 

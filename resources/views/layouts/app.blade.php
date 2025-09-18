@@ -40,7 +40,7 @@
 <body>
 
     <!-- Navigation bar (Page header) -->
-    <x-app.header />
+    <livewire:layout.header />
 
 
     <!-- Page content -->
@@ -51,12 +51,78 @@
     <!-- Page footer -->
     <x-app.footer />
 
+    @if(!auth()->check())
+        <div wire:ignore.self class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal"
+        aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border border-bottom-0 align-items-center justify-content-center  text-center">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-0">
+                        <!-- Livewire Form -->
+                        <livewire:modals.login-modal />
+                    </div>
+                    <div class="modal-footer align-items-center justify-content-center  text-center">
+                    <!-- Footer -->
+                    <footer class="mt-auto ">
+                        <p class="fs-xs text-center mb-0">
+                            Copyrights © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+                        </p>
+                    </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div wire:ignore.self class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal"
+        aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border border-bottom-0 align-items-center justify-content-center  text-center">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-0">
+                        <!-- Livewire Form -->
+                        <livewire:modals.register-modal />
+                    </div>
+                    <div class="modal-footer align-items-center justify-content-center  text-center">
+                    <!-- Footer -->
+                    <footer class="mt-auto ">
+                        <p class="fs-xs text-center mb-0">
+                            Copyrights © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+                        </p>
+                    </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-- Vendor scripts -->
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/choices.js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/cleave.js/cleave.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+
+    <script>
+        document.addEventListener('livewire:navigated', () => {
+            Livewire.on('closeModal', () => {
+                const modalEl = document.getElementById('loginModal');
+                const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                modal.hide();
+            });
+
+            Livewire.on('closeModal', () => {
+                const modalEl = document.getElementById('registerModal');
+                const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                modal.hide();
+            });
+        });
+    </script>
 
 </body>
 
