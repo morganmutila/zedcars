@@ -15,7 +15,7 @@ new class extends Component {
             <div class="d-flex flex-row flex-lg-column align-items-center align-items-lg-start">
                 <div class="flex-shrink-0 bg-body-secondary border rounded-circle overflow-hidden"
                     style="width: 64px; height: 64px">
-                    <img src="{{ asset('assets/img/account/avatar.svg') }}" class="w-100" alt="Avatar">
+                    <img src="{{ auth()->user()->profile->avatar }}" class="w-100" alt="Avatar">
                 </div>
                 <div class="pt-lg-3 ps-3 ps-lg-0">
                     <h6 class="mb-1">{{ auth()->user()->name }}</h6>

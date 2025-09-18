@@ -52,7 +52,7 @@
     <div class="d-flex align-items-start align-items-sm-center mb-2">
         <div class="ratio ratio-1x1 hover-effect-opacity bg-body-tertiary border rounded-circle overflow-hidden"
             style="width: 124px">
-            <img src="assets/img/account/avatar-lg.jpg" alt="Avatar">
+            <img src="{{ auth()->user()->profile->avatar }}" alt="Avatar">
             <div
                 class="hover-effect-target position-absolute top-0 start-0 d-flex align-items-center justify-content-center w-100 h-100 opacity-0">
                 <button type="button" class="btn btn-icon btn-sm btn-light position-relative z-2" aria-label="Remove">

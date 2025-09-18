@@ -1,7 +1,7 @@
 <div class="dropdown pe-1 me-2">
     <a class="btn btn-icon hover-effect-scale position-relative bg-body-secondary border rounded-circle overflow-hidden"
         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="My account">
-        <img src="{{ asset('assets/img/account/avatar.svg') }}"
+        <img src="{{ auth()->user()->profile->avatar }}"
             class="hover-effect-target position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="Avatar">
     </a>
     <ul class="dropdown-menu dropdown-menu-end" style="--fn-dropdown-spacer: .5rem" wire:ignore>

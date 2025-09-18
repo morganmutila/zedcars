@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -21,6 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'google_id',
+        'facebook_id',
     ];
 
     /**
@@ -46,22 +49,33 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class);
+    }
+
     // Check which fields have been filled out and return a percentage
     public function profileProgress(): array
     {
-        $fields = [
-            'name'  => 'Add your name',
+        $userFields = [
+            'name' => 'Add your name',
             'email' => 'Add your email',
-            // 'phone' => 'Add your phone number',
-            // 'address' => 'Add your address',
-            // 'dob' => 'Add your date of birth',
             'email_verified_at' => 'Verify your email',
+        ];
+
+        $profileFields = [
+            'phone' => 'Add your phone number',
+            'location' => 'Add your location',
+            'avatar' => 'Upload your avatar',
+            'bio' => 'Add your bio',
         ];
 
         $filled = 0;
         $missing = [];
+        $totalFields = count($userFields) + count($profileFields);
 
-        foreach ($fields as $field => $label) {
+        // Check user fields
+        foreach ($userFields as $field => $label) {
             if (!empty($this->{$field})) {
                 $filled++;
             } else {
@@ -69,12 +83,48 @@ class User extends Authenticatable implements MustVerifyEmail
             }
         }
 
-        $percentage = round(($filled / count($fields)) * 100);
+        // Check profile fields
+        $profile = $this->profile;
+        foreach ($profileFields as $field => $label) {
+            if ($profile && !empty($profile->{$field})) {
+                $filled++;
+            } else {
+                $missing[] = $label;
+            }
+        }
+
+        $percentage = round(($filled / $totalFields) * 100);
 
         return [
             'percentage' => (int) $percentage,
-            'missing' => $missing
+            'missing' => $missing,
+            'filled' => $filled,
+            'total' => $totalFields
         ];
+    }
+
+    // Accessor to get profile location directly from user
+    public function getLocationAttribute()
+    {
+        return $this->profile?->location;
+    }
+
+    // Accessor to get profile phone directly from user
+    public function getPhoneAttribute()
+    {
+        return $this->profile?->phone;
+    }
+
+    // Accessor to get profile bio directly from user
+    public function getBioAttribute()
+    {
+        return $this->profile?->bio;
+    }
+
+    // Accessor to get profile avatar directly from user
+    public function getAvatarAttribute()
+    {
+        return $this->profile?->avatar;
     }
 
 }
