@@ -5,78 +5,71 @@
 
     <!-- Account profile content -->
 
-    <h1 class="h2 pb-2 pb-lg-3">My profile</h1>
+    <h1 class="h2 pb-2 pb-lg-3">Profile</h1>
 
-    <!-- Account progress -->
-    <section class="row g-3 g-xl-4 pb-5 mb-md-3">
+    <!-- Profile completeness info card -->
 
-        <div class="col-12">
-            <div class="card bg-warning-subtle border-0 h-100">
-                <div class="card-body d-flex align-items-center">
-                    <div class="circular-progress text-warning flex-shrink-0 ms-n2 ms-sm-0" role="progressbar"
-                        style="--fn-progress: 65" aria-label="Warning progress" aria-valuenow="65" aria-valuemin="0"
-                        aria-valuemax="100">
-                        <svg class="progress-circle">
-                            <circle class="progress-background d-none-dark" r="0" style="stroke: #fff">
-                            </circle>
-                            <circle class="progress-background d-none d-block-dark" r="0"
-                                style="stroke: rgba(255,255,255, .1)"></circle>
-                            <circle class="progress-bar" r="0"></circle>
-                        </svg>
-                        <h5 class="position-absolute top-50 start-50 translate-middle text-center mb-0">
-                            65%</h5>
-                    </div>
-                    <div class="ps-3 ps-sm-4">
+    @if ($progress['percentage'] !== 100)
+        <div class="card bg-warning-subtle border-0 mb-2">
+            <div class="card-body d-flex align-items-center">
+                <div class="circular-progress text-warning flex-shrink-0" role="progressbar"
+                    style="--fn-progress: {{ $progress['percentage'] }}" aria-label="Warning progress"
+                    aria-valuenow="{{ $progress['percentage'] }}" aria-valuemin="0" aria-valuemax="100">
+
+                    <svg class="progress-circle">
+                        <circle class="progress-background d-none-dark" r="0" style="stroke: #fff"></circle>
+                        <circle class="progress-background d-none d-block-dark" r="0"
+                            style="stroke: rgba(255,255,255, .1)"></circle>
+                        <circle class="progress-bar" r="0"></circle>
+                    </svg>
+
+                    <h5 class="position-absolute top-50 start-50 translate-middle text-center mb-0">
+                        {{ $progress['percentage'] }}%
+                    </h5>
+                </div>
+
+                <div class="ps-3 ps-sm-4">
+                    @if ($progress['percentage'] !== 100)
                         <h3 class="h6 pb-1 mb-2">Complete your profile</h3>
-                        <ul class="list-unstyled fs-sm mb-0">
-                            <li class="d-flex">
+                    @else
+                        <h3 class="h6 pb-1 mb-2">Profile Completed</h3>
+                    @endif
+                    <ul class="list-unstyled flex-row flex-wrap fs-sm mb-0">
+                        @foreach ($progress['missing'] as $task)
+                            <li class="d-flex me-3">
                                 <i class="fi-plus fs-base me-2" style="margin-top: .1875rem"></i>
-                                Add the languages you speak
+                                {{ $task }}
                             </li>
-                            <li class="d-flex">
-                                <i class="fi-plus fs-base me-2" style="margin-top: .1875rem"></i>
-                                Verify your email
-                            </li>
-                            <li class="d-flex">
-                                <i class="fi-plus fs-base me-2" style="margin-top: .1875rem"></i>
-                                Add date of birth
-                            </li>
-                        </ul>
-                    </div>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    @endif
 
 
-    <!-- User info -->
-    <section class="pb-5 mb-md-3">
-        <div class="ratio ratio-1x1 bg-body-tertiary border rounded-circle overflow-hidden mb-3 mb-md-4"
+    <!-- Profile picture (Avatar) -->
+    <div class="d-flex align-items-start align-items-sm-center mb-2">
+        <div class="ratio ratio-1x1 hover-effect-opacity bg-body-tertiary border rounded-circle overflow-hidden"
             style="width: 124px">
             <img src="assets/img/account/avatar-lg.jpg" alt="Avatar">
+            <div
+                class="hover-effect-target position-absolute top-0 start-0 d-flex align-items-center justify-content-center w-100 h-100 opacity-0">
+                <button type="button" class="btn btn-icon btn-sm btn-light position-relative z-2" aria-label="Remove">
+                    <i class="fi-trash fs-base"></i>
+                </button>
+                <span class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 z-1"></span>
+            </div>
         </div>
-        <h2 class="h5 pb-1 pb-sm-0 mb-2 mb-sm-3">Michael Williams</h2>
-        <ul class="list-unstyled flex-row flex-wrap gap-sm-3 fs-sm mb-3">
-            <li class="d-flex align-items-center me-2">
-                <i class="fi-mail fs-base me-2"></i>
-                m.williams@example.com
-            </li>
-            <li class="d-flex align-items-center me-2">
-                <i class="fi-phone fs-base me-2"></i>
-                (212) 555-7890
-            </li>
-            <li class="d-flex align-items-center">
-                <i class="fi-map-pin fs-base me-2"></i>
-                New York, Brooklyn
-            </li>
-        </ul>
-        <p class="fs-sm pb-sm-1 pb-md-0 mb-md-4">Extensive experience in rentals and a vast database
-            means I can quickly find the options that are right for you. Looking for a seamless and
-            exciting rental experience? Contact me today - I promise it won't be boring! Your
-            perfect
-            home is just a call away.</p>
-        <a class="btn btn-outline-secondary" href="account-settings.html">Edit profile</a>
-    </section>
+        <div class="ps-3 ps-sm-4">
+            <p class="fs-sm" style="max-width: 440px">Your profile photo will appear on your profile
+                and directory listing. PNG or JPG no bigger than 1000px wide and tall.</p>
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+                <i class="fi-refresh-ccw fs-sm ms-n1 me-2"></i>
+                Update photo
+            </button>
+        </div>
+    </div>
 
 
 </x-auth-layout>

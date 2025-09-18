@@ -27,7 +27,7 @@ new class extends Component {
         </div>
 
         <!-- Body (Navigation) -->
-        <div class="offcanvas-body d-flex py-2 py-lg-4">
+        <div class="offcanvas-body d-block py-2 py-lg-4">
             <nav class="list-group list-group-borderless">
                 <a class="list-group-item list-group-item-action d-flex align-items-center {{ request()->routeIs('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard') }}" wire:navigate>

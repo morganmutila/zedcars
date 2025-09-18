@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\ProfileController;
 
 // Home
 Route::get('/', [HomeController::class, '__invoke'])->name('home');
@@ -28,9 +28,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('account', 'profile.profile')->name('profile');
-    Route::view('account/settings', 'profile.settings')->name('profile.settings');
-
+    Route::get('account', [ProfileController::class, 'profile'])->name('profile');
+    Route::view('account/settings', [ProfileController::class, 'accountSettings'])->name('profile.settings');
 });
 
 
