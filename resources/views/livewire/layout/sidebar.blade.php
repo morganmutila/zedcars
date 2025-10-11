@@ -37,7 +37,7 @@ new class extends Component {
                 <a class="list-group-item list-group-item-action d-flex align-items-center {{ request()->routeIs('profile') ? 'active' : '' }}"
                     aria-current="page" href="{{ route('profile') }}" wire:navigate>
                     <i class="fi-user fs-base opacity-75 me-2"></i>
-                    My profile
+                    Account
                 </a>
                 <a class="list-group-item list-group-item-action d-flex align-items-center {{ request()->routeIs('profile.listings') ? 'active' : '' }}"
                     href="{{ route('profile.listings') }}" wire:navigate>
@@ -57,7 +57,7 @@ new class extends Component {
                 <a class="list-group-item list-group-item-action d-flex align-items-center {{ request()->routeIs('profile.settings') ? 'active' : '' }}"
                     href="{{ route('profile.settings') }}" wire:navigate>
                     <i class="fi-settings fs-base opacity-75 me-2"></i>
-                    Account settings
+                    Settings
                 </a>
 
             </nav>
