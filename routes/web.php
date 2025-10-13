@@ -29,7 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('account', [ProfileController::class, 'profile'])->name('profile');
-    Route::view('account/settings', [ProfileController::class, 'accountSettings'])->name('profile.settings');
+    Route::view('account/settings', [ProfileController::class, 'profile.settings'])->name('profile.settings');
 });
 
 
